@@ -21,4 +21,7 @@ module.exports = {
     'react/prefer-es6-class': [0, 'never'],
     'react/sort-comp': [0],
   },
+  env: {
+    mocha: true,
+  }
 };
