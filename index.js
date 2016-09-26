@@ -16,9 +16,12 @@ module.exports = {
     'prefer-template': [0],
     'quote-props': ['error', 'consistent-as-needed'],
     'react/jsx-boolean-value': [0],
-    'react/jsx-indent-props': [2, 4],
+    'react/jsx-indent-props': [2, 2],
     'react/jsx-no-bind': [0],
     'react/prefer-es6-class': [0, 'never'],
     'react/sort-comp': [0],
   },
+  env: {
+    mocha: true,
+  }
 };
