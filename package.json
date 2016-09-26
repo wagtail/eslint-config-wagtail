@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-wagtail",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ESLint config rules for Wagtail JavaScript components",
   "main": "index.js",
   "scripts": {
