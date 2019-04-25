@@ -8,17 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/robmoorman/eslint-config-wagtail.git"
+    "url": "git+https://github.com/wagtail/eslint-config-wagtail.git"
   },
   "keywords": [
     "eslint",
     "wagtail"
   ],
-  "author": "R. Moorman <rob@moori.nl>",
+  "author": "wagtail",
   "bugs": {
-    "url": "https://github.com/robmoorman/eslint-config-wagtail/issues"
+    "url": "https://github.com/wagtail/eslint-config-wagtail/issues"
   },
-  "homepage": "https://github.com/robmoorman/eslint-config-wagtail#readme",
+  "homepage": "https://github.com/wagtail/eslint-config-wagtail#readme",
   "dependencies": {
     "eslint-config-airbnb": "^9.0.1"
   },
