@@ -1,4 +1,11 @@
 {
+  "env": {
+    "node": true,
+    "jest": true
+  },
   "extends": "./index.js",
+  "parserOptions": {
+    "ecmaVersion": 9
+  },
   "rules": {}
 }
