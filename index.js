@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['eslint-config-airbnb'],
+  extends: ['eslint:recommended', 'airbnb'],
   rules: {
     'comma-dangle': ['off'],
     'id-length': [
@@ -9,7 +9,6 @@ module.exports = {
         exceptions: ['x', 'y', 'e', 'i', 'j', 'k', 'd', 'n', '_', '$'],
       },
     ],
-    // prettier-ignore
     'indent': ['error', 2],
     'max-len': ['warn', 120, 4, { ignoreUrls: true }],
     'no-multi-spaces': ['off'],
