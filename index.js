@@ -10,6 +10,7 @@ module.exports = {
         exceptions: ['x', 'y', 'e', 'i', 'j', 'k', 'd', 'n', '_', '$'],
       },
     ],
+    'implicit-arrow-linebreak': ['off'],
     'indent': ['error', 2],
     'max-len': ['warn', 120, 4, { ignoreUrls: true }],
     'no-multi-spaces': ['off'],
