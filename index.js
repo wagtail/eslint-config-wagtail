@@ -13,8 +13,6 @@ module.exports = {
     'max-len': ['warn', 120, 4, { ignoreUrls: true }],
     'no-multi-spaces': ['off'],
     'no-new': ['warn'],
-    'no-undef': ['warn'],
-    'no-unused-vars': ['warn'],
     'no-var': ['off'],
     'no-warning-comments': [
       'warn',
