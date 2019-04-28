@@ -39,6 +39,7 @@
   },
   "homepage": "https://github.com/wagtail/eslint-config-wagtail#readme",
   "prettier": {
-    "singleQuote": true
+    "singleQuote": true,
+    "trailingComma": "all"
   }
 }
