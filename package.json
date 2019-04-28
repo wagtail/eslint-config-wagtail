@@ -25,7 +25,11 @@
     "eslint": "^2.12.0"
   },
   "keywords": [
+    "config",
+    "eslint-config",
     "eslint",
+    "lint",
+    "styleguide",
     "wagtail"
   ],
   "author": "wagtail",
