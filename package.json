@@ -6,7 +6,7 @@
   "scripts": {
     "format": "prettier --write '**/*.{js,md,css,scss,yaml,yml,json}'",
     "lint:format": "prettier --check '**/*.{js,md,css,scss,yaml,yml,json}'",
-    "lint:js": "eslint ./ --max-warnings 0",
+    "lint:js": "eslint ./ --max-warnings 0 --ignore-pattern 'examples'",
     "lint": "npm run lint:format && npm run lint:js",
     "preflight": "npm run format && npm run lint && npm run test",
     "test": "jest"
