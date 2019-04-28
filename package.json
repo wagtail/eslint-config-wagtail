@@ -10,6 +10,17 @@
     "type": "git",
     "url": "git+https://github.com/wagtail/eslint-config-wagtail.git"
   },
+  "dependencies": {
+    "eslint-config-airbnb": "^9.0.1",
+  },
+  "devDependencies": {
+    "eslint": "^2.12.0",
+    "jest": "24.7.1",
+    "prettier": "^1.17.0"
+  },
+  "peerDependencies": {
+    "eslint": "^2.12.0"
+  },
   "keywords": [
     "eslint",
     "wagtail"
@@ -20,10 +31,5 @@
     "url": "https://github.com/wagtail/eslint-config-wagtail/issues"
   },
   "homepage": "https://github.com/wagtail/eslint-config-wagtail#readme",
-  "dependencies": {
-    "eslint-config-airbnb": "^9.0.1"
-  },
-  "devDependencies": {
-    "eslint": "^2.12.0"
   }
 }
