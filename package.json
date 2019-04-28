@@ -31,5 +31,7 @@
     "url": "https://github.com/wagtail/eslint-config-wagtail/issues"
   },
   "homepage": "https://github.com/wagtail/eslint-config-wagtail#readme",
+  "prettier": {
+    "singleQuote": true
   }
 }
