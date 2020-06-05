@@ -1,4 +1,8 @@
-# eslint-config-wagtail
+# @wagtail/eslint-config-wagtail [<img src="https://raw.githubusercontent.com/wagtail/eslint-config-wagtail/master/.github/eslint-logo.svg?sanitize=true" alt="ESLint" width="90" height="90" align="right">](https://eslint.org)
+
+[![npm](https://img.shields.io/npm/v/@wagtail/eslint-config-wagtail.svg)](https://www.npmjs.com/package/@wagtail/eslint-config-wagtail) [![Build status](https://github.com/wagtail/eslint-config-wagtail/workflows/CI/badge.svg)](https://github.com/wagtail/eslint-config-wagtail/actions)
+
+> Shareable ESLint config for Wagtail, based on airbnb/javascript.
 
 The package provides Wagtail's .eslintrc as an extensible shared config.
 

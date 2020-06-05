@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-wagtail",
   "version": "0.1.1",
-  "description": "ESLint config rules for Wagtail JavaScript components",
+  "description": "Shareable ESLint config for Wagtail, based on airbnb/javascript",
   "main": "index.js",
   "scripts": {
     "format": "prettier --write '**/*.{js,md,css,scss,yaml,yml,json}'",
