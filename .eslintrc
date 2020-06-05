@@ -1,4 +1,15 @@
 {
+  "env": {
+    "node": true,
+    "jest": true
+  },
   "extends": "./index.js",
-  "rules": {}
+  "parserOptions": {
+    "ecmaVersion": 9
+  },
+  "rules": {},
+  "settings": {
+    // Manually set the version to disable automated detection of the "react" dependency.
+    "react": { "version": "latest" }
+  }
 }

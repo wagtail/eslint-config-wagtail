@@ -4,25 +4,34 @@
   "description": "ESLint config rules for Wagtail JavaScript components",
   "main": "index.js",
   "scripts": {
-    "test": "eslint *.js"
     "format": "prettier --write '**/*.{js,md,css,scss,yaml,yml,json}'",
-    "lint": "eslint ./ --max-warnings 0 && prettier --write '**/*.{js,md,css,scss,yaml,yml,json}'",
-    "preflight": "npm run lint && npm run test",
+    "lint:format": "prettier --check '**/*.{js,md,css,scss,yaml,yml,json}'",
+    "lint:js": "eslint ./ --max-warnings 0 --ignore-pattern 'examples'",
+    "lint": "npm run lint:format && npm run lint:js",
+    "preflight": "npm run format && npm run lint && npm run test",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wagtail/eslint-config-wagtail.git"
   },
-  "dependencies": {
-    "eslint-config-airbnb": "^9.0.1",
-  },
+  "dependencies": {},
   "devDependencies": {
-    "eslint": "^2.12.0",
-    "jest": "^24.7.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "jest": "^26.0.1",
     "prettier": "^1.17.0"
   },
   "peerDependencies": {
-    "eslint": "^2.12.0"
+    "eslint": ">=6",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^2.5.0"
   },
   "keywords": [
     "config",
@@ -40,6 +49,7 @@
   "homepage": "https://github.com/wagtail/eslint-config-wagtail#readme",
   "prettier": {
     "singleQuote": true,
+    "quoteProps": "consistent",
     "trailingComma": "all"
   }
 }
