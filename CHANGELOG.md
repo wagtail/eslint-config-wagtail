@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Rename to `@wagtail/eslint-config-wagtail` to match Wagtail’s stylelint config
 - Upgrade to ESLint v6
 - Update to use `eslint:recommended` as a baseline.
 - Update to latest `eslint-config-airbnb` and its dependencies.
