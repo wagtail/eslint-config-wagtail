@@ -1,6 +1,5 @@
 module.exports = {
   extends: ['eslint:recommended', 'airbnb'],
-  plugins: ['react'],
   rules: {
     'comma-dangle': ['off'],
     'id-length': [
