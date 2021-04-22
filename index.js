@@ -15,10 +15,7 @@ module.exports = {
     'no-multi-spaces': ['off'],
     'no-new': ['warn'],
     'no-var': ['off'],
-    'no-warning-comments': [
-      'warn',
-      { terms: ['todo', 'fixme', 'xxx'], location: 'start' },
-    ],
+    'no-warning-comments': ['off'],
     'object-shorthand': ['error', 'methods'],
     'prefer-arrow-callback': ['warn'],
     'prefer-template': ['off'],
@@ -28,5 +25,6 @@ module.exports = {
     'react/jsx-no-bind': ['off'],
     'react/prefer-es6-class': ['off', 'never'],
     'react/sort-comp': ['off'],
+    'react/prop-types': ['off'],
   },
 };
