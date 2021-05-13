@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.3.0](https://github.com/wagtail/eslint-config-wagtail/releases/tag/v0.3.0) - 2021-05-13)
+
+### Changed
+
+ - Disabled `no-warning-comments`
+ - Disabled `react/prop-types`
+ - Renamed `master` branch to `main`
+
 ## [v0.2.0](https://github.com/wagtail/eslint-config-wagtail/releases/tag/v0.2.0) - 2020-06-05
 
 ### Changed
