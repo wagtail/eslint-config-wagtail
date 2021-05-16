@@ -13,7 +13,7 @@ Our default export contains all of our ESLint rules, including Airbnb's config
 `eslint-plugin-import`, `eslint-plugin-react`, and `eslint-plugin-jsx-a11y`.
 
 1. Run `npx install-peerdeps --dev eslint-config-airbnb` to install peer dependencies
-2. Add `"extends": "wagtail"` to your `.eslintrc`
+2. Add `"extends": "@wagtail/eslint-config-wagtail"` to your `.eslintrc`
 
 ## Links
 
