@@ -1,29 +1,24 @@
 const fs = require('fs');
-const eslint = require('eslint');
+const path = require('path');
+const { ESLint } = require('eslint');
 
-const { CLIEngine } = eslint;
-const { readFileSync } = fs;
+const validExample = fs.readFileSync('./examples/valid.js', 'utf-8');
+const invalidExample = fs.readFileSync('./examples/invalid.js', 'utf-8');
 
-const validExample = readFileSync('./examples/valid.js', 'utf-8');
-const invalidExample = readFileSync('./examples/invalid.js', 'utf-8');
-
-const cli = new CLIEngine({
-  useEslintrc: false,
-  configFile: '.eslintrc',
-});
-
-describe('flags no warnings with valid js', () => {
-  const { errorCount, warningCount } = cli.executeOnText(validExample);
-
-  it('should return no errors or warnings', () => {
-    expect(errorCount).toEqual(0);
-    expect(warningCount).toEqual(0);
+describe('linting', () => {
+  const eslint = new ESLint({
+    useEslintrc: false,
+    overrideConfigFile: path.join(__dirname, '..', '.eslintrc'),
   });
-});
 
-describe('flags warnings with invalid js', () => {
-  const { errorCount, warningCount } = cli.executeOnText(invalidExample);
+  it('flags no warnings when valid', async () => {
+    const lintResult = await eslint.lintText(validExample);
+    expect(lintResult[0].errorCount).toEqual(0);
+    expect(lintResult[0].warningCount).toEqual(0);
+  });
 
-  it('should return some errors or warnings', () =>
-    expect(errorCount + warningCount).not.toEqual(0));
+  it('flags warnings when invalid', async () => {
+    const lintResult = await eslint.lintText(invalidExample);
+    expect(lintResult[0].errorCount + lintResult[0].warningCount).not.toEqual(0);
+  })
 });
