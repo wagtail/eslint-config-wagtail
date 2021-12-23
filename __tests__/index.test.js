@@ -19,6 +19,8 @@ describe('linting', () => {
 
   it('flags warnings when invalid', async () => {
     const lintResult = await eslint.lintText(invalidExample);
-    expect(lintResult[0].errorCount + lintResult[0].warningCount).not.toEqual(0);
-  })
+    expect(lintResult[0].errorCount + lintResult[0].warningCount).not.toEqual(
+      0,
+    );
+  });
 });
