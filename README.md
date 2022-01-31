@@ -12,7 +12,7 @@ Our default export contains all of our ESLint rules, including Airbnb's config
 (which has ECMAScript 6 and React). It requires `eslint`, as well as the configuration’s peer dependencies.
 
 ```sh
-# npm v7:
+# npm v7 and up:
 npm install --save-dev @wagtail/eslint-config-wagtail@latest
 # npm v6 and below:
 npx install-peerdeps --dev @wagtail/eslint-config-wagtail@latest
