@@ -23,6 +23,13 @@ npx install-peerdeps --dev @wagtail/eslint-config-wagtail@latest
 - [ESLint](https://eslint.org/)
 - [eslint-config-airbnb](https://github.com/airbnb/javascript)
 
+## Code style
+
+Write JavaScript according to the [Airbnb Styleguide](https://github.com/airbnb/javascript), with some exceptions:
+
+- Use soft-tabs with a two space indent. Spaces are the only way to guarantee code renders the same in any person’s environment.
+- We accept `snake_case` in object properties, such as `ajaxResponse.page_title`, however camelCase or UPPER_CASE should be used everywhere else.
+
 ## Contribution Guidelines
 
 ### Install
