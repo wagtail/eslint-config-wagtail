@@ -1,6 +1,8 @@
 module.exports = {
   extends: ['eslint:recommended', 'airbnb', 'airbnb/hooks', 'prettier'],
   rules: {
+    // See https://github.com/wagtail/wagtail/pull/9482.
+    'class-methods-use-this': 'off',
     'id-length': [
       'warn',
       {
