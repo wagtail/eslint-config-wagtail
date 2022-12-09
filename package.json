@@ -46,6 +46,7 @@
     "lint:js": "eslint ./ --max-warnings 0 --ignore-pattern 'examples'",
     "lint": "npm run lint:format && npm run lint:js",
     "preflight": "npm run format && npm run lint && npm run test",
+    "print-config": "eslint --print-config .eslintrc",
     "test": "jest"
   },
   "prettier": {
