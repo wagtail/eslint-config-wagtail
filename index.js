@@ -8,6 +8,8 @@ module.exports = {
         exceptions: ['x', 'y', 'e', 'i', 'j', 'k', 'd', 'n', '_', '$'],
       },
     ],
+    // See https://github.com/wagtail/wagtail/pull/9483.
+    'max-classes-per-file': 'off',
     'no-new': ['warn'],
     'no-var': ['off'],
     'no-warning-comments': ['off'],
