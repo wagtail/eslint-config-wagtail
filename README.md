@@ -4,7 +4,14 @@
 
 > Shareable ESLint config for Wagtail, based on airbnb/javascript.
 
-The package provides Wagtail's .eslintrc as an extensible shared config.
+The package provides Wagtail's `.eslintrc` as an extensible shared config.
+
+- [Usage](#usage)
+- [Links](#links)
+- [Code style](#code-style)
+- [Contribution Guidelines](#contribution-guidelines)
+  - [Install](#install)
+  - [Development](#development)
 
 ## Usage
 
