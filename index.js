@@ -12,6 +12,7 @@ module.exports = {
     ],
     // See https://github.com/wagtail/wagtail/pull/9483.
     'max-classes-per-file': 'off',
+    'no-constant-binary-expression': 'error',
     'no-new': ['warn'],
     'no-var': ['off'],
     'no-warning-comments': ['off'],
