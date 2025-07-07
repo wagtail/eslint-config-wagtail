@@ -1489,20 +1489,7 @@ describe('rules snapshot', () => {
           "no-param-reassign": [
             "error",
             {
-              "ignorePropertyModificationsFor": [
-                "acc",
-                "accumulator",
-                "e",
-                "ctx",
-                "context",
-                "req",
-                "request",
-                "res",
-                "response",
-                "$scope",
-                "staticContext",
-              ],
-              "props": true,
+              "props": false,
             },
           ],
           "no-path-concat": [
@@ -1679,10 +1666,6 @@ describe('rules snapshot', () => {
             {
               "message": "for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.",
               "selector": "ForInStatement",
-            },
-            {
-              "message": "iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations.",
-              "selector": "ForOfStatement",
             },
             {
               "message": "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.",

@@ -205,7 +205,7 @@ Write JavaScript according to the [Airbnb Styleguide](https://github.com/airbnb/
 | [`no-obj-calls`][138]                                          | `error`  |                                                                           |
 | [`no-octal`][139]                                              | `error`  |                                                                           |
 | [`no-octal-escape`][140]                                       | `error`  |                                                                           |
-| [`no-param-reassign`][141]                                     | `error`  | [see Config][config]                                                      |
+| [`no-param-reassign`][141]                                     | `error`  | `{"props":false}`                                                         |
 | [`no-path-concat`][142]                                        | `error`  |                                                                           |
 | [`no-plusplus`][143]                                           | `error`  |                                                                           |
 | [`no-promise-executor-return`][144]                            | `error`  |                                                                           |

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Allow assignment of any object properties (`no-param-reassign`). Previously they were only allowed for specific property names.
+- Allow `for…of` loops (`no-restricted-syntax`).
+
 ## [v0.4.0](https://github.com/wagtail/eslint-config-wagtail/releases/tag/v0.4.0) - 2021-12-23)
 
 - Update to ESLint v8 and [eslint-config-airbnb v19.0.2](https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/CHANGELOG.md), changing rules that are applied with this config.
