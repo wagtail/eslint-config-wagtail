@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.5.0](https://github.com/wagtail/eslint-config-wagtail/releases/tag/v0.5.0) - 2025-07-08)
+
 ### Changed
 
 - Allow assignment of any object properties (`no-param-reassign`). Previously they were only allowed for specific property names.

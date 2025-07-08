@@ -1,6 +1,6 @@
 {
   "name": "@wagtail/eslint-config-wagtail",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Shareable ESLint config for Wagtail, based on airbnb/javascript",
   "main": "index.js",
   "files": [
