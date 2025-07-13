@@ -1,5 +1,5 @@
-const fs = require('node:fs');
-const { ESLint } = require('eslint');
+import fs from 'node:fs';
+import { ESLint } from 'eslint';
 
 const COMMENT = '<!-- RULES:START -->';
 const README = 'README.md';
