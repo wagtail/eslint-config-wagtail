@@ -43,12 +43,12 @@
     "format": "prettier --write '**/*.{js,md,css,scss,yaml,yml,json}'",
     "lint:format": "prettier --check '**/*.{js,md,css,scss,yaml,yml,json}'",
     "lint:js": "eslint ./ --max-warnings 0 --ignore-pattern 'examples'",
-    "lint:readme": "node write-rules.js --check",
+    "lint:readme": "node write-rules.mjs --check",
     "lint": "npm run lint:format && npm run lint:js && npm run lint:readme",
     "preflight": "npm run format && npm run lint && npm run test",
     "print-config": "eslint --print-config .eslintrc",
     "test": "node --test",
-    "write-rules": "node write-rules.js"
+    "write-rules": "node write-rules.mjs"
   },
   "prettier": {
     "singleQuote": true,
