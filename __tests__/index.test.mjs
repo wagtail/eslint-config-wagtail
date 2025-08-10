@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { describe, it } from 'node:test';
 import { ESLint } from 'eslint';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const validExample = fs.readFileSync('./examples/valid.js', 'utf-8');
 const invalidExample = fs.readFileSync('./examples/invalid.js', 'utf-8');
@@ -13,7 +13,7 @@ const invalidExample = fs.readFileSync('./examples/invalid.js', 'utf-8');
 describe('linting', () => {
   const eslint = new ESLint({
     useEslintrc: false,
-    overrideConfigFile: path.join(__dirname, '..', '.eslintrc'),
+    overrideConfigFile: path.join(dirname, '..', '.eslintrc'),
   });
 
   it('flags no warnings when valid', async () => {
