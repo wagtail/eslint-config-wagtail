@@ -1,4 +1,3 @@
-import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 import { ESLint } from 'eslint';
 
@@ -20,7 +19,7 @@ const getComputedConfig = async (baseConfig) => {
 };
 
 describe('rules snapshot', () => {
-  it('has stable config rules', async (t) => {
-    t.assert.snapshot(await getComputedConfig(config));
+  it('has stable config rules', async (test) => {
+    test.assert.snapshot(await getComputedConfig(config));
   });
 });
