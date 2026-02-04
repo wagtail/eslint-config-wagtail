@@ -1,3 +1,4 @@
+import globals from 'globals';
 import config from './index.js';
 
 export default [
@@ -7,14 +8,7 @@ export default [
       ecmaVersion: 'latest',
       sourceType: 'module',
       globals: {
-        console: 'readonly',
-        process: 'readonly',
-        __dirname: 'readonly',
-        __filename: 'readonly',
-        Buffer: 'readonly',
-        module: 'readonly',
-        require: 'readonly',
-        exports: 'writable',
+        ...globals.node,
       },
     },
     settings: {
