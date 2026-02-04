@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **BREAKING**: Migrated to ESLint v9 and flat config format.
+- **BREAKING**: Removed dependency on `eslint-config-airbnb` (not compatible with ESLint v9).
+- **BREAKING**: Package now uses ESM format (`"type": "module"` in package.json).
+- **BREAKING**: Config must now be imported in `eslint.config.js` instead of extending in `.eslintrc`.
+- Updated ESLint from v8.56 to v9.39.2.
+- Updated `eslint-config-prettier` from v9.1.0 to v10.1.0.
+- Updated peer dependencies to ESLint v9 compatible versions.
+- Ported relevant rules from AirBnB config directly into this package.
+- Removed ES5-specific rules that are no longer relevant for modern JavaScript.
+- Updated documentation to reflect flat config usage and remove AirBnB references.
+
 ## [v0.5.0](https://github.com/wagtail/eslint-config-wagtail/releases/tag/v0.5.0) - 2025-07-08)
 
 ### Changed
