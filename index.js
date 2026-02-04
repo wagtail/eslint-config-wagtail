@@ -16,7 +16,10 @@ export default [
     },
     rules: {
       // Import rules - based on AirBnB config, filtered for modern JS
-      'import/no-unresolved': ['error', { commonjs: true, caseSensitive: true }],
+      'import/no-unresolved': [
+        'error',
+        { commonjs: true, caseSensitive: true },
+      ],
       'import/named': 'error',
       'import/default': 'error',
       'import/namespace': 'error',
@@ -27,14 +30,21 @@ export default [
       'import/no-amd': 'error',
       'import/first': 'error',
       'import/no-duplicates': 'error',
-      'import/extensions': ['error', 'ignorePackages', {
-        js: 'never',
-        mjs: 'never',
-        jsx: 'never',
-      }],
-      'import/order': ['error', {
-        groups: [['builtin', 'external', 'internal']],
-      }],
+      'import/extensions': [
+        'error',
+        'ignorePackages',
+        {
+          js: 'never',
+          mjs: 'never',
+          jsx: 'never',
+        },
+      ],
+      'import/order': [
+        'error',
+        {
+          groups: [['builtin', 'external', 'internal']],
+        },
+      ],
       'import/newline-after-import': 'error',
       'import/no-absolute-path': 'error',
       'import/no-dynamic-require': 'error',
@@ -77,10 +87,13 @@ export default [
       'react/self-closing-comp': 'error',
       'react/jsx-no-duplicate-props': 'error',
       'react/jsx-no-target-blank': ['error', { enforceDynamicLinks: 'always' }],
-      'react/jsx-pascal-case': ['error', {
-        allowAllCaps: true,
-        ignore: [],
-      }],
+      'react/jsx-pascal-case': [
+        'error',
+        {
+          allowAllCaps: true,
+          ignore: [],
+        },
+      ],
 
       // React Hooks rules
       'react-hooks/rules-of-hooks': 'error',
@@ -127,13 +140,19 @@ export default [
   {
     rules: {
       // Variables
-      'no-use-before-define': ['error', { functions: true, classes: true, variables: true }],
+      'no-use-before-define': [
+        'error',
+        { functions: true, classes: true, variables: true },
+      ],
       'no-shadow': 'error',
       'no-shadow-restricted-names': 'error',
       'no-undef-init': 'error',
 
       // Best practices
-      'array-callback-return': ['error', { allowImplicit: true, checkForEach: false }],
+      'array-callback-return': [
+        'error',
+        { allowImplicit: true, checkForEach: false },
+      ],
       'block-scoped-var': 'error',
       'consistent-return': 'error',
       'curly': ['error', 'multi-line'],
@@ -148,9 +167,12 @@ export default [
       'no-caller': 'error',
       'no-constructor-return': 'error',
       'no-else-return': ['error', { allowElseIf: false }],
-      'no-empty-function': ['error', {
-        allow: ['arrowFunctions', 'functions', 'methods'],
-      }],
+      'no-empty-function': [
+        'error',
+        {
+          allow: ['arrowFunctions', 'functions', 'methods'],
+        },
+      ],
       'no-eval': 'error',
       'no-extend-native': 'error',
       'no-extra-bind': 'error',
@@ -174,11 +196,14 @@ export default [
       'no-sequences': 'error',
       'no-throw-literal': 'error',
       'no-unmodified-loop-condition': 'error',
-      'no-unused-expressions': ['error', {
-        allowShortCircuit: false,
-        allowTernary: false,
-        allowTaggedTemplates: false,
-      }],
+      'no-unused-expressions': [
+        'error',
+        {
+          allowShortCircuit: false,
+          allowTernary: false,
+          allowTaggedTemplates: false,
+        },
+      ],
       'no-useless-call': 'error',
       'no-useless-concat': 'error',
       'no-useless-escape': 'error',
@@ -194,7 +219,11 @@ export default [
       'yoda': 'error',
 
       // ES6
-      'arrow-body-style': ['error', 'as-needed', { requireReturnForObjectLiteral: false }],
+      'arrow-body-style': [
+        'error',
+        'as-needed',
+        { requireReturnForObjectLiteral: false },
+      ],
       'constructor-super': 'error',
       'no-class-assign': 'error',
       'no-const-assign': 'error',
@@ -204,32 +233,45 @@ export default [
       'no-this-before-super': 'error',
       'no-useless-computed-key': 'error',
       'no-useless-constructor': 'error',
-      'no-useless-rename': ['error', {
-        ignoreDestructuring: false,
-        ignoreImport: false,
-        ignoreExport: false,
-      }],
+      'no-useless-rename': [
+        'error',
+        {
+          ignoreDestructuring: false,
+          ignoreImport: false,
+          ignoreExport: false,
+        },
+      ],
       'object-shorthand': ['error', 'methods'],
-      'prefer-arrow-callback': ['error', {
-        allowNamedFunctions: false,
-        allowUnboundThis: true,
-      }],
-      'prefer-const': ['error', {
-        destructuring: 'any',
-        ignoreReadBeforeAssign: true,
-      }],
-      'prefer-destructuring': ['error', {
-        VariableDeclarator: {
-          array: false,
-          object: true,
+      'prefer-arrow-callback': [
+        'error',
+        {
+          allowNamedFunctions: false,
+          allowUnboundThis: true,
         },
-        AssignmentExpression: {
-          array: true,
-          object: false,
+      ],
+      'prefer-const': [
+        'error',
+        {
+          destructuring: 'any',
+          ignoreReadBeforeAssign: true,
         },
-      }, {
-        enforceForRenamedProperties: false,
-      }],
+      ],
+      'prefer-destructuring': [
+        'error',
+        {
+          VariableDeclarator: {
+            array: false,
+            object: true,
+          },
+          AssignmentExpression: {
+            array: true,
+            object: false,
+          },
+        },
+        {
+          enforceForRenamedProperties: false,
+        },
+      ],
       'prefer-numeric-literals': 'error',
       'prefer-rest-params': 'error',
       'prefer-spread': 'error',
@@ -238,10 +280,13 @@ export default [
 
       // Wagtail-specific overrides
       'class-methods-use-this': 'off',
-      'id-length': ['warn', {
-        min: 2,
-        exceptions: ['x', 'y', 'e', 'i', 'j', 'k', 'd', 'n', '_', '$'],
-      }],
+      'id-length': [
+        'warn',
+        {
+          min: 2,
+          exceptions: ['x', 'y', 'e', 'i', 'j', 'k', 'd', 'n', '_', '$'],
+        },
+      ],
       'max-classes-per-file': 'off',
       'no-constant-binary-expression': 'error',
       'no-var': 'off',
@@ -254,15 +299,18 @@ export default [
         'error',
         {
           selector: 'ForInStatement',
-          message: 'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.',
+          message:
+            'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.',
         },
         {
           selector: 'LabeledStatement',
-          message: 'Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.',
+          message:
+            'Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.',
         },
         {
           selector: 'WithStatement',
-          message: '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
+          message:
+            '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
         },
       ],
     },

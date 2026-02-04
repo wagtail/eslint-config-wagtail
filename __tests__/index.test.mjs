@@ -12,8 +12,7 @@ const invalidExample = fs.readFileSync('./examples/invalid.js', 'utf-8');
 
 describe('linting', () => {
   const eslint = new ESLint({
-    useEslintrc: false,
-    overrideConfigFile: path.join(dirname, '..', '.eslintrc'),
+    overrideConfigFile: path.join(dirname, '..', 'eslint.config.js'),
   });
 
   it('flags no warnings when valid', async () => {

@@ -21,6 +21,10 @@ export default [
       // Manually set the version to disable automated detection of the "react" dependency.
       react: { version: '999.999.999' },
     },
+    rules: {
+      // Allow .js extensions for local ESM imports since this package uses "type": "module"
+      'import/extensions': ['error', 'ignorePackages'],
+    },
   },
   {
     files: ['*.test.{js,mjs}'],
