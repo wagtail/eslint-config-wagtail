@@ -1,8 +1,12 @@
 {
   "name": "@wagtail/eslint-config-wagtail",
   "version": "0.5.0",
-  "description": "Shareable ESLint config for Wagtail, based on airbnb/javascript",
+  "description": "Shareable ESLint config for Wagtail",
+  "type": "module",
   "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
   "files": [
     "index.js"
   ],
@@ -25,19 +29,17 @@
     "wagtail"
   ],
   "devDependencies": {
-    "eslint": "^8.56.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^9.1.0",
+    "eslint": "^9.39.0",
+    "eslint-config-prettier": "^10.1.0",
     "prettier": "^3.6.2"
   },
   "peerDependencies": {
-    "eslint": "^8.56.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.29.0",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0"
+    "eslint": "^9.39.0",
+    "eslint-config-prettier": "^10.1.0",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-react-hooks": "^5.0.0 || ^4.6.0"
   },
   "scripts": {
     "format": "prettier --write '**/*.{js,md,css,scss,yaml,yml,json}'",
