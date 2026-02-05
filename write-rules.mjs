@@ -14,8 +14,8 @@ const getUrl = (rule) => {
   const [group, ruleName] = parts;
 
   const nonCoreRules = {
-    'import': () =>
-      `https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/${ruleName}.md`,
+    'import-x': () =>
+      `https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/${ruleName}.md`,
     'jsx-a11y': () =>
       `https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/${ruleName}.md`,
     'react': () =>

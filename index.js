@@ -1,7 +1,6 @@
-// eslint-disable-next-line import/no-unresolved
 import { defineConfig } from 'eslint/config';
 import js from '@eslint/js';
-import importPlugin from 'eslint-plugin-import';
+import { importX } from 'eslint-plugin-import-x';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
@@ -9,7 +8,7 @@ import prettier from 'eslint-config-prettier';
 
 export default defineConfig(
   js.configs.recommended,
-  importPlugin.flatConfigs.recommended,
+  importX.flatConfigs.recommended,
   react.configs.flat.recommended,
   reactHooks.configs.flat.recommended,
   jsxA11y.flatConfigs.recommended,
