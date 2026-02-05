@@ -9,8 +9,6 @@ export default defineConfig(
   config,
   {
     languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
       globals: {
         ...globals.node,
       },
