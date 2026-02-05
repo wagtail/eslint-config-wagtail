@@ -17,7 +17,11 @@ export default defineConfig(
     },
     settings: {
       // Manually set the version to disable automated detection of the "react" dependency.
-      react: { version: '999.999.999' },
+      'react': { version: '999.999.999' },
+      'import/resolver': {
+        typescript: true,
+        node: true,
+      },
     },
   },
 );

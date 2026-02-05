@@ -38,6 +38,7 @@ export default [
 This ESLint config includes `recommended` rules from:
 
 - [ESLint rules](https://eslint.org/docs/latest/rules/)
+- [typescript-eslint (including `stylistic`)](https://typescript-eslint.io/)
 - [eslint-plugin-import-x](https://github.com/un-ts/eslint-plugin-import-x)
 - [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react)
 - [eslint-plugin-react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
@@ -75,287 +76,349 @@ With some Wagtail-specific customizations:
 
 | Rule                                                           | Severity | Config                                                            |
 | -------------------------------------------------------------- | -------- | ----------------------------------------------------------------- |
-| [`constructor-super`][0]                                       | `2`      |                                                                   |
-| [`for-direction`][1]                                           | `2`      |                                                                   |
-| [`getter-return`][2]                                           | `2`      | `{"allowImplicit":false}`                                         |
-| [`id-length`][3]                                               | `1`      | [see Config][config]                                              |
-| [`import-x/default`][4]                                        | `2`      |                                                                   |
-| [`import-x/export`][5]                                         | `2`      |                                                                   |
-| [`import-x/named`][6]                                          | `2`      |                                                                   |
-| [`import-x/namespace`][7]                                      | `2`      |                                                                   |
-| [`import-x/no-duplicates`][8]                                  | `1`      |                                                                   |
-| [`import-x/no-named-as-default`][9]                            | `1`      |                                                                   |
-| [`import-x/no-named-as-default-member`][10]                    | `1`      |                                                                   |
-| [`import-x/no-unresolved`][11]                                 | `2`      |                                                                   |
-| [`jsx-a11y/alt-text`][12]                                      | `2`      |                                                                   |
-| [`jsx-a11y/anchor-has-content`][13]                            | `2`      |                                                                   |
-| [`jsx-a11y/anchor-is-valid`][14]                               | `2`      |                                                                   |
-| [`jsx-a11y/aria-activedescendant-has-tabindex`][15]            | `2`      |                                                                   |
-| [`jsx-a11y/aria-props`][16]                                    | `2`      |                                                                   |
-| [`jsx-a11y/aria-proptypes`][17]                                | `2`      |                                                                   |
-| [`jsx-a11y/aria-role`][18]                                     | `2`      |                                                                   |
-| [`jsx-a11y/aria-unsupported-elements`][19]                     | `2`      |                                                                   |
-| [`jsx-a11y/autocomplete-valid`][20]                            | `2`      |                                                                   |
-| [`jsx-a11y/click-events-have-key-events`][21]                  | `2`      |                                                                   |
-| [`jsx-a11y/heading-has-content`][22]                           | `2`      |                                                                   |
-| [`jsx-a11y/html-has-lang`][23]                                 | `2`      |                                                                   |
-| [`jsx-a11y/iframe-has-title`][24]                              | `2`      |                                                                   |
-| [`jsx-a11y/img-redundant-alt`][25]                             | `2`      |                                                                   |
-| [`jsx-a11y/interactive-supports-focus`][26]                    | `2`      | [see Config][config]                                              |
-| [`jsx-a11y/label-has-associated-control`][27]                  | `2`      |                                                                   |
-| [`jsx-a11y/media-has-caption`][28]                             | `2`      |                                                                   |
-| [`jsx-a11y/mouse-events-have-key-events`][29]                  | `2`      |                                                                   |
-| [`jsx-a11y/no-access-key`][30]                                 | `2`      |                                                                   |
-| [`jsx-a11y/no-autofocus`][31]                                  | `2`      |                                                                   |
-| [`jsx-a11y/no-distracting-elements`][32]                       | `2`      |                                                                   |
-| [`jsx-a11y/no-interactive-element-to-noninteractive-role`][33] | `2`      | `{"tr":["none","presentation"],"canvas":["img"]}`                 |
-| [`jsx-a11y/no-noninteractive-element-interactions`][34]        | `2`      | [see Config][config]                                              |
-| [`jsx-a11y/no-noninteractive-element-to-interactive-role`][35] | `2`      | [see Config][config]                                              |
-| [`jsx-a11y/no-noninteractive-tabindex`][36]                    | `2`      | `{"tags":[],"roles":["tabpanel"],"allowExpressionValues":true}`   |
-| [`jsx-a11y/no-redundant-roles`][37]                            | `2`      |                                                                   |
-| [`jsx-a11y/no-static-element-interactions`][38]                | `2`      | [see Config][config]                                              |
-| [`jsx-a11y/role-has-required-aria-props`][39]                  | `2`      |                                                                   |
-| [`jsx-a11y/role-supports-aria-props`][40]                      | `2`      |                                                                   |
-| [`jsx-a11y/scope`][41]                                         | `2`      |                                                                   |
-| [`jsx-a11y/tabindex-no-positive`][42]                          | `2`      |                                                                   |
-| [`no-async-promise-executor`][43]                              | `2`      |                                                                   |
-| [`no-case-declarations`][44]                                   | `2`      |                                                                   |
-| [`no-class-assign`][45]                                        | `2`      |                                                                   |
-| [`no-compare-neg-zero`][46]                                    | `2`      |                                                                   |
-| [`no-cond-assign`][47]                                         | `2`      | `"except-parens"`                                                 |
-| [`no-const-assign`][48]                                        | `2`      |                                                                   |
-| [`no-constant-binary-expression`][49]                          | `2`      |                                                                   |
-| [`no-constant-condition`][50]                                  | `2`      | `{"checkLoops":"allExceptWhileTrue"}`                             |
-| [`no-control-regex`][51]                                       | `2`      |                                                                   |
-| [`no-debugger`][52]                                            | `2`      |                                                                   |
-| [`no-delete-var`][53]                                          | `2`      |                                                                   |
-| [`no-dupe-args`][54]                                           | `2`      |                                                                   |
-| [`no-dupe-class-members`][55]                                  | `2`      |                                                                   |
-| [`no-dupe-else-if`][56]                                        | `2`      |                                                                   |
-| [`no-dupe-keys`][57]                                           | `2`      |                                                                   |
-| [`no-duplicate-case`][58]                                      | `2`      |                                                                   |
-| [`no-empty`][59]                                               | `2`      | `{"allowEmptyCatch":false}`                                       |
-| [`no-empty-character-class`][60]                               | `2`      |                                                                   |
-| [`no-empty-pattern`][61]                                       | `2`      | `{"allowObjectPatternsAsParameters":false}`                       |
-| [`no-empty-static-block`][62]                                  | `2`      |                                                                   |
-| [`no-ex-assign`][63]                                           | `2`      |                                                                   |
-| [`no-extra-boolean-cast`][64]                                  | `2`      | `{}`                                                              |
-| [`no-fallthrough`][65]                                         | `2`      | `{"allowEmptyCase":false,"reportUnusedFallthroughComment":false}` |
-| [`no-func-assign`][66]                                         | `2`      |                                                                   |
-| [`no-global-assign`][67]                                       | `2`      | `{"exceptions":[]}`                                               |
-| [`no-import-assign`][68]                                       | `2`      |                                                                   |
-| [`no-invalid-regexp`][69]                                      | `2`      | `{}`                                                              |
-| [`no-irregular-whitespace`][70]                                | `2`      | [see Config][config]                                              |
-| [`no-loss-of-precision`][71]                                   | `2`      |                                                                   |
-| [`no-misleading-character-class`][72]                          | `2`      | `{"allowEscape":false}`                                           |
-| [`no-new`][73]                                                 | `1`      |                                                                   |
-| [`no-new-native-nonconstructor`][74]                           | `2`      |                                                                   |
-| [`no-nonoctal-decimal-escape`][75]                             | `2`      |                                                                   |
-| [`no-obj-calls`][76]                                           | `2`      |                                                                   |
-| [`no-octal`][77]                                               | `2`      |                                                                   |
-| [`no-param-reassign`][78]                                      | `2`      | `{"props":false}`                                                 |
-| [`no-prototype-builtins`][79]                                  | `2`      |                                                                   |
-| [`no-redeclare`][80]                                           | `2`      | `{"builtinGlobals":true}`                                         |
-| [`no-regex-spaces`][81]                                        | `2`      |                                                                   |
-| [`no-restricted-syntax`][82]                                   | `2`      | [see Config][config]                                              |
-| [`no-self-assign`][83]                                         | `2`      | `{"props":true}`                                                  |
-| [`no-setter-return`][84]                                       | `2`      |                                                                   |
-| [`no-shadow-restricted-names`][85]                             | `2`      | `{"reportGlobalThis":false}`                                      |
-| [`no-sparse-arrays`][86]                                       | `2`      |                                                                   |
-| [`no-this-before-super`][87]                                   | `2`      |                                                                   |
-| [`no-undef`][88]                                               | `2`      | `{"typeof":false}`                                                |
-| [`no-unreachable`][89]                                         | `2`      |                                                                   |
-| [`no-unsafe-finally`][90]                                      | `2`      |                                                                   |
-| [`no-unsafe-negation`][91]                                     | `2`      | `{"enforceForOrderingRelations":false}`                           |
-| [`no-unsafe-optional-chaining`][92]                            | `2`      | `{"disallowArithmeticOperators":false}`                           |
-| [`no-unused-labels`][93]                                       | `2`      |                                                                   |
-| [`no-unused-private-class-members`][94]                        | `2`      |                                                                   |
-| [`no-unused-vars`][95]                                         | `2`      |                                                                   |
-| [`no-useless-backreference`][96]                               | `2`      |                                                                   |
-| [`no-useless-catch`][97]                                       | `2`      |                                                                   |
-| [`no-useless-escape`][98]                                      | `2`      | `{"allowRegexCharacters":[]}`                                     |
-| [`no-with`][99]                                                | `2`      |                                                                   |
-| [`object-shorthand`][100]                                      | `2`      | `"methods"`                                                       |
-| [`react-hooks/component-hook-factories`][101]                  | `2`      |                                                                   |
-| [`react-hooks/config`][102]                                    | `2`      |                                                                   |
-| [`react-hooks/error-boundaries`][103]                          | `2`      |                                                                   |
-| [`react-hooks/exhaustive-deps`][104]                           | `1`      |                                                                   |
-| [`react-hooks/gating`][105]                                    | `2`      |                                                                   |
-| [`react-hooks/globals`][106]                                   | `2`      |                                                                   |
-| [`react-hooks/immutability`][107]                              | `2`      |                                                                   |
-| [`react-hooks/incompatible-library`][108]                      | `1`      |                                                                   |
-| [`react-hooks/preserve-manual-memoization`][109]               | `2`      |                                                                   |
-| [`react-hooks/purity`][110]                                    | `2`      |                                                                   |
-| [`react-hooks/refs`][111]                                      | `2`      |                                                                   |
-| [`react-hooks/rules-of-hooks`][112]                            | `2`      |                                                                   |
-| [`react-hooks/set-state-in-effect`][113]                       | `2`      |                                                                   |
-| [`react-hooks/set-state-in-render`][114]                       | `2`      |                                                                   |
-| [`react-hooks/static-components`][115]                         | `2`      |                                                                   |
-| [`react-hooks/unsupported-syntax`][116]                        | `1`      |                                                                   |
-| [`react-hooks/use-memo`][117]                                  | `2`      |                                                                   |
-| [`react/display-name`][118]                                    | `2`      |                                                                   |
-| [`react/jsx-key`][119]                                         | `2`      |                                                                   |
-| [`react/jsx-no-comment-textnodes`][120]                        | `2`      |                                                                   |
-| [`react/jsx-no-duplicate-props`][121]                          | `2`      |                                                                   |
-| [`react/jsx-no-target-blank`][122]                             | `2`      |                                                                   |
-| [`react/jsx-no-undef`][123]                                    | `2`      |                                                                   |
-| [`react/jsx-uses-react`][124]                                  | `2`      |                                                                   |
-| [`react/jsx-uses-vars`][125]                                   | `2`      |                                                                   |
-| [`react/no-children-prop`][126]                                | `2`      |                                                                   |
-| [`react/no-danger-with-children`][127]                         | `2`      |                                                                   |
-| [`react/no-deprecated`][128]                                   | `2`      |                                                                   |
-| [`react/no-direct-mutation-state`][129]                        | `2`      |                                                                   |
-| [`react/no-find-dom-node`][130]                                | `2`      |                                                                   |
-| [`react/no-is-mounted`][131]                                   | `2`      |                                                                   |
-| [`react/no-render-return-value`][132]                          | `2`      |                                                                   |
-| [`react/no-string-refs`][133]                                  | `2`      |                                                                   |
-| [`react/no-unescaped-entities`][134]                           | `2`      |                                                                   |
-| [`react/no-unknown-property`][135]                             | `2`      |                                                                   |
-| [`react/react-in-jsx-scope`][136]                              | `2`      |                                                                   |
-| [`react/require-render-return`][137]                           | `2`      |                                                                   |
-| [`require-yield`][138]                                         | `2`      |                                                                   |
-| [`use-isnan`][139]                                             | `2`      | `{"enforceForIndexOf":false,"enforceForSwitchCase":true}`         |
-| [`valid-typeof`][140]                                          | `2`      | `{"requireStringLiterals":false}`                                 |
+| [`@typescript-eslint/adjacent-overload-signatures`][0]         | `2`      |                                                                   |
+| [`@typescript-eslint/array-type`][1]                           | `2`      |                                                                   |
+| [`@typescript-eslint/ban-ts-comment`][2]                       | `2`      |                                                                   |
+| [`@typescript-eslint/ban-tslint-comment`][3]                   | `2`      |                                                                   |
+| [`@typescript-eslint/class-literal-property-style`][4]         | `2`      |                                                                   |
+| [`@typescript-eslint/consistent-generic-constructors`][5]      | `2`      |                                                                   |
+| [`@typescript-eslint/consistent-indexed-object-style`][6]      | `2`      |                                                                   |
+| [`@typescript-eslint/consistent-type-assertions`][7]           | `2`      |                                                                   |
+| [`@typescript-eslint/consistent-type-definitions`][8]          | `2`      |                                                                   |
+| [`@typescript-eslint/no-array-constructor`][9]                 | `2`      |                                                                   |
+| [`@typescript-eslint/no-confusing-non-null-assertion`][10]     | `2`      |                                                                   |
+| [`@typescript-eslint/no-duplicate-enum-values`][11]            | `2`      |                                                                   |
+| [`@typescript-eslint/no-empty-function`][12]                   | `2`      | `{"allow":[]}`                                                    |
+| [`@typescript-eslint/no-empty-object-type`][13]                | `2`      |                                                                   |
+| [`@typescript-eslint/no-explicit-any`][14]                     | `2`      |                                                                   |
+| [`@typescript-eslint/no-extra-non-null-assertion`][15]         | `2`      |                                                                   |
+| [`@typescript-eslint/no-inferrable-types`][16]                 | `2`      |                                                                   |
+| [`@typescript-eslint/no-misused-new`][17]                      | `2`      |                                                                   |
+| [`@typescript-eslint/no-namespace`][18]                        | `2`      |                                                                   |
+| [`@typescript-eslint/no-non-null-asserted-optional-chain`][19] | `2`      |                                                                   |
+| [`@typescript-eslint/no-require-imports`][20]                  | `2`      |                                                                   |
+| [`@typescript-eslint/no-this-alias`][21]                       | `2`      |                                                                   |
+| [`@typescript-eslint/no-unnecessary-type-constraint`][22]      | `2`      |                                                                   |
+| [`@typescript-eslint/no-unsafe-declaration-merging`][23]       | `2`      |                                                                   |
+| [`@typescript-eslint/no-unsafe-function-type`][24]             | `2`      |                                                                   |
+| [`@typescript-eslint/no-unused-expressions`][25]               | `2`      | [see Config][config]                                              |
+| [`@typescript-eslint/no-unused-vars`][26]                      | `2`      |                                                                   |
+| [`@typescript-eslint/no-wrapper-object-types`][27]             | `2`      |                                                                   |
+| [`@typescript-eslint/prefer-as-const`][28]                     | `2`      |                                                                   |
+| [`@typescript-eslint/prefer-for-of`][29]                       | `2`      |                                                                   |
+| [`@typescript-eslint/prefer-function-type`][30]                | `2`      |                                                                   |
+| [`@typescript-eslint/prefer-namespace-keyword`][31]            | `2`      |                                                                   |
+| [`@typescript-eslint/triple-slash-reference`][32]              | `2`      |                                                                   |
+| [`constructor-super`][33]                                      | `2`      |                                                                   |
+| [`for-direction`][34]                                          | `2`      |                                                                   |
+| [`getter-return`][35]                                          | `2`      | `{"allowImplicit":false}`                                         |
+| [`id-length`][36]                                              | `1`      | [see Config][config]                                              |
+| [`import-x/default`][37]                                       | `2`      |                                                                   |
+| [`import-x/export`][38]                                        | `2`      |                                                                   |
+| [`import-x/namespace`][39]                                     | `2`      |                                                                   |
+| [`import-x/no-duplicates`][40]                                 | `1`      |                                                                   |
+| [`import-x/no-named-as-default`][41]                           | `1`      |                                                                   |
+| [`import-x/no-named-as-default-member`][42]                    | `1`      |                                                                   |
+| [`import-x/no-unresolved`][43]                                 | `2`      |                                                                   |
+| [`jsx-a11y/alt-text`][44]                                      | `2`      |                                                                   |
+| [`jsx-a11y/anchor-has-content`][45]                            | `2`      |                                                                   |
+| [`jsx-a11y/anchor-is-valid`][46]                               | `2`      |                                                                   |
+| [`jsx-a11y/aria-activedescendant-has-tabindex`][47]            | `2`      |                                                                   |
+| [`jsx-a11y/aria-props`][48]                                    | `2`      |                                                                   |
+| [`jsx-a11y/aria-proptypes`][49]                                | `2`      |                                                                   |
+| [`jsx-a11y/aria-role`][50]                                     | `2`      |                                                                   |
+| [`jsx-a11y/aria-unsupported-elements`][51]                     | `2`      |                                                                   |
+| [`jsx-a11y/autocomplete-valid`][52]                            | `2`      |                                                                   |
+| [`jsx-a11y/click-events-have-key-events`][53]                  | `2`      |                                                                   |
+| [`jsx-a11y/heading-has-content`][54]                           | `2`      |                                                                   |
+| [`jsx-a11y/html-has-lang`][55]                                 | `2`      |                                                                   |
+| [`jsx-a11y/iframe-has-title`][56]                              | `2`      |                                                                   |
+| [`jsx-a11y/img-redundant-alt`][57]                             | `2`      |                                                                   |
+| [`jsx-a11y/interactive-supports-focus`][58]                    | `2`      | [see Config][config]                                              |
+| [`jsx-a11y/label-has-associated-control`][59]                  | `2`      |                                                                   |
+| [`jsx-a11y/media-has-caption`][60]                             | `2`      |                                                                   |
+| [`jsx-a11y/mouse-events-have-key-events`][61]                  | `2`      |                                                                   |
+| [`jsx-a11y/no-access-key`][62]                                 | `2`      |                                                                   |
+| [`jsx-a11y/no-autofocus`][63]                                  | `2`      |                                                                   |
+| [`jsx-a11y/no-distracting-elements`][64]                       | `2`      |                                                                   |
+| [`jsx-a11y/no-interactive-element-to-noninteractive-role`][65] | `2`      | `{"tr":["none","presentation"],"canvas":["img"]}`                 |
+| [`jsx-a11y/no-noninteractive-element-interactions`][66]        | `2`      | [see Config][config]                                              |
+| [`jsx-a11y/no-noninteractive-element-to-interactive-role`][67] | `2`      | [see Config][config]                                              |
+| [`jsx-a11y/no-noninteractive-tabindex`][68]                    | `2`      | `{"tags":[],"roles":["tabpanel"],"allowExpressionValues":true}`   |
+| [`jsx-a11y/no-redundant-roles`][69]                            | `2`      |                                                                   |
+| [`jsx-a11y/no-static-element-interactions`][70]                | `2`      | [see Config][config]                                              |
+| [`jsx-a11y/role-has-required-aria-props`][71]                  | `2`      |                                                                   |
+| [`jsx-a11y/role-supports-aria-props`][72]                      | `2`      |                                                                   |
+| [`jsx-a11y/scope`][73]                                         | `2`      |                                                                   |
+| [`jsx-a11y/tabindex-no-positive`][74]                          | `2`      |                                                                   |
+| [`no-async-promise-executor`][75]                              | `2`      |                                                                   |
+| [`no-case-declarations`][76]                                   | `2`      |                                                                   |
+| [`no-class-assign`][77]                                        | `2`      |                                                                   |
+| [`no-compare-neg-zero`][78]                                    | `2`      |                                                                   |
+| [`no-cond-assign`][79]                                         | `2`      | `"except-parens"`                                                 |
+| [`no-const-assign`][80]                                        | `2`      |                                                                   |
+| [`no-constant-binary-expression`][81]                          | `2`      |                                                                   |
+| [`no-constant-condition`][82]                                  | `2`      | `{"checkLoops":"allExceptWhileTrue"}`                             |
+| [`no-control-regex`][83]                                       | `2`      |                                                                   |
+| [`no-debugger`][84]                                            | `2`      |                                                                   |
+| [`no-delete-var`][85]                                          | `2`      |                                                                   |
+| [`no-dupe-args`][86]                                           | `2`      |                                                                   |
+| [`no-dupe-class-members`][87]                                  | `2`      |                                                                   |
+| [`no-dupe-else-if`][88]                                        | `2`      |                                                                   |
+| [`no-dupe-keys`][89]                                           | `2`      |                                                                   |
+| [`no-duplicate-case`][90]                                      | `2`      |                                                                   |
+| [`no-empty`][91]                                               | `2`      | `{"allowEmptyCatch":false}`                                       |
+| [`no-empty-character-class`][92]                               | `2`      |                                                                   |
+| [`no-empty-pattern`][93]                                       | `2`      | `{"allowObjectPatternsAsParameters":false}`                       |
+| [`no-empty-static-block`][94]                                  | `2`      |                                                                   |
+| [`no-ex-assign`][95]                                           | `2`      |                                                                   |
+| [`no-extra-boolean-cast`][96]                                  | `2`      | `{}`                                                              |
+| [`no-fallthrough`][97]                                         | `2`      | `{"allowEmptyCase":false,"reportUnusedFallthroughComment":false}` |
+| [`no-func-assign`][98]                                         | `2`      |                                                                   |
+| [`no-global-assign`][99]                                       | `2`      | `{"exceptions":[]}`                                               |
+| [`no-import-assign`][100]                                      | `2`      |                                                                   |
+| [`no-invalid-regexp`][101]                                     | `2`      | `{}`                                                              |
+| [`no-irregular-whitespace`][102]                               | `2`      | [see Config][config]                                              |
+| [`no-loss-of-precision`][103]                                  | `2`      |                                                                   |
+| [`no-misleading-character-class`][104]                         | `2`      | `{"allowEscape":false}`                                           |
+| [`no-new`][105]                                                | `1`      |                                                                   |
+| [`no-new-native-nonconstructor`][106]                          | `2`      |                                                                   |
+| [`no-nonoctal-decimal-escape`][107]                            | `2`      |                                                                   |
+| [`no-obj-calls`][108]                                          | `2`      |                                                                   |
+| [`no-octal`][109]                                              | `2`      |                                                                   |
+| [`no-param-reassign`][110]                                     | `2`      | `{"props":false}`                                                 |
+| [`no-prototype-builtins`][111]                                 | `2`      |                                                                   |
+| [`no-redeclare`][112]                                          | `2`      | `{"builtinGlobals":true}`                                         |
+| [`no-regex-spaces`][113]                                       | `2`      |                                                                   |
+| [`no-restricted-syntax`][114]                                  | `2`      | [see Config][config]                                              |
+| [`no-self-assign`][115]                                        | `2`      | `{"props":true}`                                                  |
+| [`no-setter-return`][116]                                      | `2`      |                                                                   |
+| [`no-shadow-restricted-names`][117]                            | `2`      | `{"reportGlobalThis":false}`                                      |
+| [`no-sparse-arrays`][118]                                      | `2`      |                                                                   |
+| [`no-this-before-super`][119]                                  | `2`      |                                                                   |
+| [`no-undef`][120]                                              | `2`      | `{"typeof":false}`                                                |
+| [`no-unreachable`][121]                                        | `2`      |                                                                   |
+| [`no-unsafe-finally`][122]                                     | `2`      |                                                                   |
+| [`no-unsafe-negation`][123]                                    | `2`      | `{"enforceForOrderingRelations":false}`                           |
+| [`no-unsafe-optional-chaining`][124]                           | `2`      | `{"disallowArithmeticOperators":false}`                           |
+| [`no-unused-labels`][125]                                      | `2`      |                                                                   |
+| [`no-unused-private-class-members`][126]                       | `2`      |                                                                   |
+| [`no-useless-backreference`][127]                              | `2`      |                                                                   |
+| [`no-useless-catch`][128]                                      | `2`      |                                                                   |
+| [`no-useless-escape`][129]                                     | `2`      | `{"allowRegexCharacters":[]}`                                     |
+| [`no-with`][130]                                               | `2`      |                                                                   |
+| [`object-shorthand`][131]                                      | `2`      | `"methods"`                                                       |
+| [`react-hooks/component-hook-factories`][132]                  | `2`      |                                                                   |
+| [`react-hooks/config`][133]                                    | `2`      |                                                                   |
+| [`react-hooks/error-boundaries`][134]                          | `2`      |                                                                   |
+| [`react-hooks/exhaustive-deps`][135]                           | `1`      |                                                                   |
+| [`react-hooks/gating`][136]                                    | `2`      |                                                                   |
+| [`react-hooks/globals`][137]                                   | `2`      |                                                                   |
+| [`react-hooks/immutability`][138]                              | `2`      |                                                                   |
+| [`react-hooks/incompatible-library`][139]                      | `1`      |                                                                   |
+| [`react-hooks/preserve-manual-memoization`][140]               | `2`      |                                                                   |
+| [`react-hooks/purity`][141]                                    | `2`      |                                                                   |
+| [`react-hooks/refs`][142]                                      | `2`      |                                                                   |
+| [`react-hooks/rules-of-hooks`][143]                            | `2`      |                                                                   |
+| [`react-hooks/set-state-in-effect`][144]                       | `2`      |                                                                   |
+| [`react-hooks/set-state-in-render`][145]                       | `2`      |                                                                   |
+| [`react-hooks/static-components`][146]                         | `2`      |                                                                   |
+| [`react-hooks/unsupported-syntax`][147]                        | `1`      |                                                                   |
+| [`react-hooks/use-memo`][148]                                  | `2`      |                                                                   |
+| [`react/display-name`][149]                                    | `2`      |                                                                   |
+| [`react/jsx-key`][150]                                         | `2`      |                                                                   |
+| [`react/jsx-no-comment-textnodes`][151]                        | `2`      |                                                                   |
+| [`react/jsx-no-duplicate-props`][152]                          | `2`      |                                                                   |
+| [`react/jsx-no-target-blank`][153]                             | `2`      |                                                                   |
+| [`react/jsx-no-undef`][154]                                    | `2`      |                                                                   |
+| [`react/jsx-uses-react`][155]                                  | `2`      |                                                                   |
+| [`react/jsx-uses-vars`][156]                                   | `2`      |                                                                   |
+| [`react/no-children-prop`][157]                                | `2`      |                                                                   |
+| [`react/no-danger-with-children`][158]                         | `2`      |                                                                   |
+| [`react/no-deprecated`][159]                                   | `2`      |                                                                   |
+| [`react/no-direct-mutation-state`][160]                        | `2`      |                                                                   |
+| [`react/no-find-dom-node`][161]                                | `2`      |                                                                   |
+| [`react/no-is-mounted`][162]                                   | `2`      |                                                                   |
+| [`react/no-render-return-value`][163]                          | `2`      |                                                                   |
+| [`react/no-string-refs`][164]                                  | `2`      |                                                                   |
+| [`react/no-unescaped-entities`][165]                           | `2`      |                                                                   |
+| [`react/no-unknown-property`][166]                             | `2`      |                                                                   |
+| [`react/react-in-jsx-scope`][167]                              | `2`      |                                                                   |
+| [`react/require-render-return`][168]                           | `2`      |                                                                   |
+| [`require-yield`][169]                                         | `2`      |                                                                   |
+| [`use-isnan`][170]                                             | `2`      | `{"enforceForIndexOf":false,"enforceForSwitchCase":true}`         |
+| [`valid-typeof`][171]                                          | `2`      | `{"requireStringLiterals":false}`                                 |
 
 [config]: https://github.com/wagtail/eslint-config-wagtail/blob/main/index.js
-[0]: https://eslint.org/docs/latest/rules/constructor-super
-[1]: https://eslint.org/docs/latest/rules/for-direction
-[2]: https://eslint.org/docs/latest/rules/getter-return
-[3]: https://eslint.org/docs/latest/rules/id-length
-[4]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/default.md
-[5]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/export.md
-[6]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/named.md
-[7]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/namespace.md
-[8]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-duplicates.md
-[9]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-named-as-default.md
-[10]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-named-as-default-member.md
-[11]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-unresolved.md
-[12]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/alt-text.md
-[13]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/anchor-has-content.md
-[14]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/anchor-is-valid.md
-[15]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/aria-activedescendant-has-tabindex.md
-[16]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/aria-props.md
-[17]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/aria-proptypes.md
-[18]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/aria-role.md
-[19]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/aria-unsupported-elements.md
-[20]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/autocomplete-valid.md
-[21]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/click-events-have-key-events.md
-[22]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/heading-has-content.md
-[23]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/html-has-lang.md
-[24]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/iframe-has-title.md
-[25]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/img-redundant-alt.md
-[26]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/interactive-supports-focus.md
-[27]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/label-has-associated-control.md
-[28]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/media-has-caption.md
-[29]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/mouse-events-have-key-events.md
-[30]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-access-key.md
-[31]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-autofocus.md
-[32]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-distracting-elements.md
-[33]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-interactive-element-to-noninteractive-role.md
-[34]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-noninteractive-element-interactions.md
-[35]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-noninteractive-element-to-interactive-role.md
-[36]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-noninteractive-tabindex.md
-[37]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-redundant-roles.md
-[38]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-static-element-interactions.md
-[39]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/role-has-required-aria-props.md
-[40]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/role-supports-aria-props.md
-[41]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/scope.md
-[42]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/tabindex-no-positive.md
-[43]: https://eslint.org/docs/latest/rules/no-async-promise-executor
-[44]: https://eslint.org/docs/latest/rules/no-case-declarations
-[45]: https://eslint.org/docs/latest/rules/no-class-assign
-[46]: https://eslint.org/docs/latest/rules/no-compare-neg-zero
-[47]: https://eslint.org/docs/latest/rules/no-cond-assign
-[48]: https://eslint.org/docs/latest/rules/no-const-assign
-[49]: https://eslint.org/docs/latest/rules/no-constant-binary-expression
-[50]: https://eslint.org/docs/latest/rules/no-constant-condition
-[51]: https://eslint.org/docs/latest/rules/no-control-regex
-[52]: https://eslint.org/docs/latest/rules/no-debugger
-[53]: https://eslint.org/docs/latest/rules/no-delete-var
-[54]: https://eslint.org/docs/latest/rules/no-dupe-args
-[55]: https://eslint.org/docs/latest/rules/no-dupe-class-members
-[56]: https://eslint.org/docs/latest/rules/no-dupe-else-if
-[57]: https://eslint.org/docs/latest/rules/no-dupe-keys
-[58]: https://eslint.org/docs/latest/rules/no-duplicate-case
-[59]: https://eslint.org/docs/latest/rules/no-empty
-[60]: https://eslint.org/docs/latest/rules/no-empty-character-class
-[61]: https://eslint.org/docs/latest/rules/no-empty-pattern
-[62]: https://eslint.org/docs/latest/rules/no-empty-static-block
-[63]: https://eslint.org/docs/latest/rules/no-ex-assign
-[64]: https://eslint.org/docs/latest/rules/no-extra-boolean-cast
-[65]: https://eslint.org/docs/latest/rules/no-fallthrough
-[66]: https://eslint.org/docs/latest/rules/no-func-assign
-[67]: https://eslint.org/docs/latest/rules/no-global-assign
-[68]: https://eslint.org/docs/latest/rules/no-import-assign
-[69]: https://eslint.org/docs/latest/rules/no-invalid-regexp
-[70]: https://eslint.org/docs/latest/rules/no-irregular-whitespace
-[71]: https://eslint.org/docs/latest/rules/no-loss-of-precision
-[72]: https://eslint.org/docs/latest/rules/no-misleading-character-class
-[73]: https://eslint.org/docs/latest/rules/no-new
-[74]: https://eslint.org/docs/latest/rules/no-new-native-nonconstructor
-[75]: https://eslint.org/docs/latest/rules/no-nonoctal-decimal-escape
-[76]: https://eslint.org/docs/latest/rules/no-obj-calls
-[77]: https://eslint.org/docs/latest/rules/no-octal
-[78]: https://eslint.org/docs/latest/rules/no-param-reassign
-[79]: https://eslint.org/docs/latest/rules/no-prototype-builtins
-[80]: https://eslint.org/docs/latest/rules/no-redeclare
-[81]: https://eslint.org/docs/latest/rules/no-regex-spaces
-[82]: https://eslint.org/docs/latest/rules/no-restricted-syntax
-[83]: https://eslint.org/docs/latest/rules/no-self-assign
-[84]: https://eslint.org/docs/latest/rules/no-setter-return
-[85]: https://eslint.org/docs/latest/rules/no-shadow-restricted-names
-[86]: https://eslint.org/docs/latest/rules/no-sparse-arrays
-[87]: https://eslint.org/docs/latest/rules/no-this-before-super
-[88]: https://eslint.org/docs/latest/rules/no-undef
-[89]: https://eslint.org/docs/latest/rules/no-unreachable
-[90]: https://eslint.org/docs/latest/rules/no-unsafe-finally
-[91]: https://eslint.org/docs/latest/rules/no-unsafe-negation
-[92]: https://eslint.org/docs/latest/rules/no-unsafe-optional-chaining
-[93]: https://eslint.org/docs/latest/rules/no-unused-labels
-[94]: https://eslint.org/docs/latest/rules/no-unused-private-class-members
-[95]: https://eslint.org/docs/latest/rules/no-unused-vars
-[96]: https://eslint.org/docs/latest/rules/no-useless-backreference
-[97]: https://eslint.org/docs/latest/rules/no-useless-catch
-[98]: https://eslint.org/docs/latest/rules/no-useless-escape
-[99]: https://eslint.org/docs/latest/rules/no-with
-[100]: https://eslint.org/docs/latest/rules/object-shorthand
-[101]: https://legacy.reactjs.org/docs/hooks-rules.html
-[102]: https://legacy.reactjs.org/docs/hooks-rules.html
-[103]: https://legacy.reactjs.org/docs/hooks-rules.html
-[104]: https://legacy.reactjs.org/docs/hooks-rules.html
-[105]: https://legacy.reactjs.org/docs/hooks-rules.html
-[106]: https://legacy.reactjs.org/docs/hooks-rules.html
-[107]: https://legacy.reactjs.org/docs/hooks-rules.html
-[108]: https://legacy.reactjs.org/docs/hooks-rules.html
-[109]: https://legacy.reactjs.org/docs/hooks-rules.html
-[110]: https://legacy.reactjs.org/docs/hooks-rules.html
-[111]: https://legacy.reactjs.org/docs/hooks-rules.html
-[112]: https://legacy.reactjs.org/docs/hooks-rules.html
-[113]: https://legacy.reactjs.org/docs/hooks-rules.html
-[114]: https://legacy.reactjs.org/docs/hooks-rules.html
-[115]: https://legacy.reactjs.org/docs/hooks-rules.html
-[116]: https://legacy.reactjs.org/docs/hooks-rules.html
-[117]: https://legacy.reactjs.org/docs/hooks-rules.html
-[118]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/display-name.md
-[119]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-key.md
-[120]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-comment-textnodes.md
-[121]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-duplicate-props.md
-[122]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-target-blank.md
-[123]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-undef.md
-[124]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-uses-react.md
-[125]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md
-[126]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-children-prop.md
-[127]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-danger-with-children.md
-[128]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-deprecated.md
-[129]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-direct-mutation-state.md
-[130]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md
-[131]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md
-[132]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-render-return-value.md
-[133]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md
-[134]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unescaped-entities.md
-[135]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unknown-property.md
-[136]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
-[137]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-render-return.md
-[138]: https://eslint.org/docs/latest/rules/require-yield
-[139]: https://eslint.org/docs/latest/rules/use-isnan
-[140]: https://eslint.org/docs/latest/rules/valid-typeof
+[0]: https://typescript-eslint.io/rules/adjacent-overload-signatures/
+[1]: https://typescript-eslint.io/rules/array-type/
+[2]: https://typescript-eslint.io/rules/ban-ts-comment/
+[3]: https://typescript-eslint.io/rules/ban-tslint-comment/
+[4]: https://typescript-eslint.io/rules/class-literal-property-style/
+[5]: https://typescript-eslint.io/rules/consistent-generic-constructors/
+[6]: https://typescript-eslint.io/rules/consistent-indexed-object-style/
+[7]: https://typescript-eslint.io/rules/consistent-type-assertions/
+[8]: https://typescript-eslint.io/rules/consistent-type-definitions/
+[9]: https://typescript-eslint.io/rules/no-array-constructor/
+[10]: https://typescript-eslint.io/rules/no-confusing-non-null-assertion/
+[11]: https://typescript-eslint.io/rules/no-duplicate-enum-values/
+[12]: https://typescript-eslint.io/rules/no-empty-function/
+[13]: https://typescript-eslint.io/rules/no-empty-object-type/
+[14]: https://typescript-eslint.io/rules/no-explicit-any/
+[15]: https://typescript-eslint.io/rules/no-extra-non-null-assertion/
+[16]: https://typescript-eslint.io/rules/no-inferrable-types/
+[17]: https://typescript-eslint.io/rules/no-misused-new/
+[18]: https://typescript-eslint.io/rules/no-namespace/
+[19]: https://typescript-eslint.io/rules/no-non-null-asserted-optional-chain/
+[20]: https://typescript-eslint.io/rules/no-require-imports/
+[21]: https://typescript-eslint.io/rules/no-this-alias/
+[22]: https://typescript-eslint.io/rules/no-unnecessary-type-constraint/
+[23]: https://typescript-eslint.io/rules/no-unsafe-declaration-merging/
+[24]: https://typescript-eslint.io/rules/no-unsafe-function-type/
+[25]: https://typescript-eslint.io/rules/no-unused-expressions/
+[26]: https://typescript-eslint.io/rules/no-unused-vars/
+[27]: https://typescript-eslint.io/rules/no-wrapper-object-types/
+[28]: https://typescript-eslint.io/rules/prefer-as-const/
+[29]: https://typescript-eslint.io/rules/prefer-for-of/
+[30]: https://typescript-eslint.io/rules/prefer-function-type/
+[31]: https://typescript-eslint.io/rules/prefer-namespace-keyword/
+[32]: https://typescript-eslint.io/rules/triple-slash-reference/
+[33]: https://eslint.org/docs/latest/rules/constructor-super
+[34]: https://eslint.org/docs/latest/rules/for-direction
+[35]: https://eslint.org/docs/latest/rules/getter-return
+[36]: https://eslint.org/docs/latest/rules/id-length
+[37]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/default.md
+[38]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/export.md
+[39]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/namespace.md
+[40]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-duplicates.md
+[41]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-named-as-default.md
+[42]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-named-as-default-member.md
+[43]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-unresolved.md
+[44]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/alt-text.md
+[45]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/anchor-has-content.md
+[46]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/anchor-is-valid.md
+[47]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/aria-activedescendant-has-tabindex.md
+[48]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/aria-props.md
+[49]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/aria-proptypes.md
+[50]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/aria-role.md
+[51]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/aria-unsupported-elements.md
+[52]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/autocomplete-valid.md
+[53]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/click-events-have-key-events.md
+[54]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/heading-has-content.md
+[55]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/html-has-lang.md
+[56]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/iframe-has-title.md
+[57]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/img-redundant-alt.md
+[58]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/interactive-supports-focus.md
+[59]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/label-has-associated-control.md
+[60]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/media-has-caption.md
+[61]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/mouse-events-have-key-events.md
+[62]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-access-key.md
+[63]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-autofocus.md
+[64]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-distracting-elements.md
+[65]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-interactive-element-to-noninteractive-role.md
+[66]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-noninteractive-element-interactions.md
+[67]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-noninteractive-element-to-interactive-role.md
+[68]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-noninteractive-tabindex.md
+[69]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-redundant-roles.md
+[70]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-static-element-interactions.md
+[71]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/role-has-required-aria-props.md
+[72]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/role-supports-aria-props.md
+[73]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/scope.md
+[74]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/tabindex-no-positive.md
+[75]: https://eslint.org/docs/latest/rules/no-async-promise-executor
+[76]: https://eslint.org/docs/latest/rules/no-case-declarations
+[77]: https://eslint.org/docs/latest/rules/no-class-assign
+[78]: https://eslint.org/docs/latest/rules/no-compare-neg-zero
+[79]: https://eslint.org/docs/latest/rules/no-cond-assign
+[80]: https://eslint.org/docs/latest/rules/no-const-assign
+[81]: https://eslint.org/docs/latest/rules/no-constant-binary-expression
+[82]: https://eslint.org/docs/latest/rules/no-constant-condition
+[83]: https://eslint.org/docs/latest/rules/no-control-regex
+[84]: https://eslint.org/docs/latest/rules/no-debugger
+[85]: https://eslint.org/docs/latest/rules/no-delete-var
+[86]: https://eslint.org/docs/latest/rules/no-dupe-args
+[87]: https://eslint.org/docs/latest/rules/no-dupe-class-members
+[88]: https://eslint.org/docs/latest/rules/no-dupe-else-if
+[89]: https://eslint.org/docs/latest/rules/no-dupe-keys
+[90]: https://eslint.org/docs/latest/rules/no-duplicate-case
+[91]: https://eslint.org/docs/latest/rules/no-empty
+[92]: https://eslint.org/docs/latest/rules/no-empty-character-class
+[93]: https://eslint.org/docs/latest/rules/no-empty-pattern
+[94]: https://eslint.org/docs/latest/rules/no-empty-static-block
+[95]: https://eslint.org/docs/latest/rules/no-ex-assign
+[96]: https://eslint.org/docs/latest/rules/no-extra-boolean-cast
+[97]: https://eslint.org/docs/latest/rules/no-fallthrough
+[98]: https://eslint.org/docs/latest/rules/no-func-assign
+[99]: https://eslint.org/docs/latest/rules/no-global-assign
+[100]: https://eslint.org/docs/latest/rules/no-import-assign
+[101]: https://eslint.org/docs/latest/rules/no-invalid-regexp
+[102]: https://eslint.org/docs/latest/rules/no-irregular-whitespace
+[103]: https://eslint.org/docs/latest/rules/no-loss-of-precision
+[104]: https://eslint.org/docs/latest/rules/no-misleading-character-class
+[105]: https://eslint.org/docs/latest/rules/no-new
+[106]: https://eslint.org/docs/latest/rules/no-new-native-nonconstructor
+[107]: https://eslint.org/docs/latest/rules/no-nonoctal-decimal-escape
+[108]: https://eslint.org/docs/latest/rules/no-obj-calls
+[109]: https://eslint.org/docs/latest/rules/no-octal
+[110]: https://eslint.org/docs/latest/rules/no-param-reassign
+[111]: https://eslint.org/docs/latest/rules/no-prototype-builtins
+[112]: https://eslint.org/docs/latest/rules/no-redeclare
+[113]: https://eslint.org/docs/latest/rules/no-regex-spaces
+[114]: https://eslint.org/docs/latest/rules/no-restricted-syntax
+[115]: https://eslint.org/docs/latest/rules/no-self-assign
+[116]: https://eslint.org/docs/latest/rules/no-setter-return
+[117]: https://eslint.org/docs/latest/rules/no-shadow-restricted-names
+[118]: https://eslint.org/docs/latest/rules/no-sparse-arrays
+[119]: https://eslint.org/docs/latest/rules/no-this-before-super
+[120]: https://eslint.org/docs/latest/rules/no-undef
+[121]: https://eslint.org/docs/latest/rules/no-unreachable
+[122]: https://eslint.org/docs/latest/rules/no-unsafe-finally
+[123]: https://eslint.org/docs/latest/rules/no-unsafe-negation
+[124]: https://eslint.org/docs/latest/rules/no-unsafe-optional-chaining
+[125]: https://eslint.org/docs/latest/rules/no-unused-labels
+[126]: https://eslint.org/docs/latest/rules/no-unused-private-class-members
+[127]: https://eslint.org/docs/latest/rules/no-useless-backreference
+[128]: https://eslint.org/docs/latest/rules/no-useless-catch
+[129]: https://eslint.org/docs/latest/rules/no-useless-escape
+[130]: https://eslint.org/docs/latest/rules/no-with
+[131]: https://eslint.org/docs/latest/rules/object-shorthand
+[132]: https://legacy.reactjs.org/docs/hooks-rules.html
+[133]: https://legacy.reactjs.org/docs/hooks-rules.html
+[134]: https://legacy.reactjs.org/docs/hooks-rules.html
+[135]: https://legacy.reactjs.org/docs/hooks-rules.html
+[136]: https://legacy.reactjs.org/docs/hooks-rules.html
+[137]: https://legacy.reactjs.org/docs/hooks-rules.html
+[138]: https://legacy.reactjs.org/docs/hooks-rules.html
+[139]: https://legacy.reactjs.org/docs/hooks-rules.html
+[140]: https://legacy.reactjs.org/docs/hooks-rules.html
+[141]: https://legacy.reactjs.org/docs/hooks-rules.html
+[142]: https://legacy.reactjs.org/docs/hooks-rules.html
+[143]: https://legacy.reactjs.org/docs/hooks-rules.html
+[144]: https://legacy.reactjs.org/docs/hooks-rules.html
+[145]: https://legacy.reactjs.org/docs/hooks-rules.html
+[146]: https://legacy.reactjs.org/docs/hooks-rules.html
+[147]: https://legacy.reactjs.org/docs/hooks-rules.html
+[148]: https://legacy.reactjs.org/docs/hooks-rules.html
+[149]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/display-name.md
+[150]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-key.md
+[151]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-comment-textnodes.md
+[152]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-duplicate-props.md
+[153]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-target-blank.md
+[154]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-undef.md
+[155]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-uses-react.md
+[156]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md
+[157]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-children-prop.md
+[158]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-danger-with-children.md
+[159]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-deprecated.md
+[160]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-direct-mutation-state.md
+[161]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md
+[162]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md
+[163]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-render-return-value.md
+[164]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md
+[165]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unescaped-entities.md
+[166]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unknown-property.md
+[167]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
+[168]: https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/require-render-return.md
+[169]: https://eslint.org/docs/latest/rules/require-yield
+[170]: https://eslint.org/docs/latest/rules/use-isnan
+[171]: https://eslint.org/docs/latest/rules/valid-typeof

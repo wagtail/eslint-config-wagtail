@@ -14,6 +14,8 @@ const getUrl = (rule) => {
   const [group, ruleName] = parts;
 
   const nonCoreRules = {
+    '@typescript-eslint': () =>
+      `https://typescript-eslint.io/rules/${ruleName}/`,
     'import-x': () =>
       `https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/${ruleName}.md`,
     'jsx-a11y': () =>

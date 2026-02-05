@@ -1,5 +1,32 @@
 exports[`rules snapshot > has stable config rules 1`] = `
 {
+  "settings": {
+    "import-x/extensions": [
+      ".ts",
+      ".tsx",
+      ".cts",
+      ".mts",
+      ".js",
+      ".jsx",
+      ".cjs",
+      ".mjs"
+    ],
+    "import-x/external-module-folders": [
+      "node_modules",
+      "node_modules/@types"
+    ],
+    "import-x/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx",
+        ".cts",
+        ".mts"
+      ]
+    },
+    "import-x/resolver": {
+      "typescript": true
+    }
+  },
   "linterOptions": {
     "reportUnusedDisableDirectives": 1
   },
@@ -214,7 +241,7 @@ exports[`rules snapshot > has stable config rules 1`] = `
       2
     ],
     "no-unused-vars": [
-      2
+      0
     ],
     "no-useless-backreference": [
       2
@@ -247,11 +274,137 @@ exports[`rules snapshot > has stable config rules 1`] = `
         "requireStringLiterals": false
       }
     ],
+    "@typescript-eslint/ban-ts-comment": [
+      2
+    ],
+    "no-array-constructor": [
+      0
+    ],
+    "@typescript-eslint/no-array-constructor": [
+      2
+    ],
+    "@typescript-eslint/no-duplicate-enum-values": [
+      2
+    ],
+    "@typescript-eslint/no-empty-object-type": [
+      2
+    ],
+    "@typescript-eslint/no-explicit-any": [
+      2
+    ],
+    "@typescript-eslint/no-extra-non-null-assertion": [
+      2
+    ],
+    "@typescript-eslint/no-misused-new": [
+      2
+    ],
+    "@typescript-eslint/no-namespace": [
+      2
+    ],
+    "@typescript-eslint/no-non-null-asserted-optional-chain": [
+      2
+    ],
+    "@typescript-eslint/no-require-imports": [
+      2
+    ],
+    "@typescript-eslint/no-this-alias": [
+      2
+    ],
+    "@typescript-eslint/no-unnecessary-type-constraint": [
+      2
+    ],
+    "@typescript-eslint/no-unsafe-declaration-merging": [
+      2
+    ],
+    "@typescript-eslint/no-unsafe-function-type": [
+      2
+    ],
+    "no-unused-expressions": [
+      0,
+      {
+        "allowShortCircuit": false,
+        "allowTernary": false,
+        "allowTaggedTemplates": false,
+        "enforceForJSX": false,
+        "ignoreDirectives": false
+      }
+    ],
+    "@typescript-eslint/no-unused-expressions": [
+      2,
+      {
+        "allowShortCircuit": false,
+        "allowTaggedTemplates": false,
+        "allowTernary": false
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      2
+    ],
+    "@typescript-eslint/no-wrapper-object-types": [
+      2
+    ],
+    "@typescript-eslint/prefer-as-const": [
+      2
+    ],
+    "@typescript-eslint/prefer-namespace-keyword": [
+      2
+    ],
+    "@typescript-eslint/triple-slash-reference": [
+      2
+    ],
+    "@typescript-eslint/adjacent-overload-signatures": [
+      2
+    ],
+    "@typescript-eslint/array-type": [
+      2
+    ],
+    "@typescript-eslint/ban-tslint-comment": [
+      2
+    ],
+    "@typescript-eslint/class-literal-property-style": [
+      2
+    ],
+    "@typescript-eslint/consistent-generic-constructors": [
+      2
+    ],
+    "@typescript-eslint/consistent-indexed-object-style": [
+      2
+    ],
+    "@typescript-eslint/consistent-type-assertions": [
+      2
+    ],
+    "@typescript-eslint/consistent-type-definitions": [
+      2
+    ],
+    "@typescript-eslint/no-confusing-non-null-assertion": [
+      2
+    ],
+    "no-empty-function": [
+      0,
+      {
+        "allow": []
+      }
+    ],
+    "@typescript-eslint/no-empty-function": [
+      2,
+      {
+        "allow": []
+      }
+    ],
+    "@typescript-eslint/no-inferrable-types": [
+      2
+    ],
+    "@typescript-eslint/prefer-for-of": [
+      2
+    ],
+    "@typescript-eslint/prefer-function-type": [
+      2
+    ],
     "import-x/no-unresolved": [
       2
     ],
     "import-x/named": [
-      2
+      0
     ],
     "import-x/namespace": [
       2
@@ -1792,6 +1945,7 @@ exports[`rules snapshot > has stable config rules 1`] = `
   },
   "plugins": [
     "@",
+    "@typescript-eslint:@typescript-eslint/eslint-plugin@8.54.0",
     "import-x:eslint-plugin-import-x@4.16.1",
     "react",
     "react-hooks:eslint-plugin-react-hooks@7.0.0",
@@ -1801,12 +1955,11 @@ exports[`rules snapshot > has stable config rules 1`] = `
   "languageOptions": {
     "sourceType": "module",
     "ecmaVersion": 2026,
-    "parser": "espree@10.4.0",
+    "parser": "typescript-eslint/parser@8.54.0",
     "parserOptions": {
       "ecmaFeatures": {
         "jsx": true
-      },
-      "sourceType": "module"
+      }
     }
   }
 }
