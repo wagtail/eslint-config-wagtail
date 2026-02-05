@@ -1,24 +1,22 @@
+import { defineConfig } from 'eslint/config';
 import js from '@eslint/js';
+import tseslint from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
-import jsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
 import reactHooks from 'eslint-plugin-react-hooks';
 import prettier from 'eslint-config-prettier';
-import tseslint from 'typescript-eslint';
 
-export default [
+export default defineConfig(
   js.configs.recommended,
-  ...tseslint.configs.recommended,
+  tseslint.configs.recommended,
+  tseslint.configs.stylistic,
   importPlugin.flatConfigs.recommended,
-  jsxA11y.flatConfigs.recommended,
   react.configs.flat.recommended,
-  {
-    plugins: {
-      'react-hooks': reactHooks,
-    },
-    rules: reactHooks.configs.recommended.rules,
-  },
+  jsxA11y.flatConfigs.recommended,
+  reactHooks.configs.flat.recommended,
   prettier,
+  // Wagtail-specific rules.
   {
     rules: {
       // See https://github.com/wagtail/wagtail/pull/9482.
@@ -71,4 +69,4 @@ export default [
       'react/prop-types': ['off'],
     },
   },
-];
+);

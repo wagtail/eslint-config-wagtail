@@ -3,7 +3,7 @@ import globals from 'globals';
 
 export default [
   {
-    ignores: ['examples/**', 'node_modules/**'],
+    ignores: ['examples/**'],
   },
   ...config,
   {
