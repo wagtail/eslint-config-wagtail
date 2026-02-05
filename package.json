@@ -54,7 +54,7 @@
     "lint:js": "eslint ./ --max-warnings 0",
     "lint:readme": "node write-rules.mjs --check",
     "lint": "npm run lint:format && npm run lint:js && npm run lint:readme",
-    "preflight": "npm run format && npm run lint && npm run test",
+    "preflight": "npm run format && npm run lint && npm run test -- --test-update-snapshots",
     "print-config": "eslint --print-config eslint.config.js",
     "test": "node --test",
     "write-rules": "node write-rules.mjs"
