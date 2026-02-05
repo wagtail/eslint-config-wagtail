@@ -17,6 +17,23 @@ export default defineConfig(
   reactHooks.configs.flat.recommended,
   jsxA11y.flatConfigs.recommended,
   prettier,
+  // Rules previously enabled via airbnb's config
+  {
+    rules: {
+      'array-callback-return': ['error', { allowImplicit: true }],
+      'arrow-body-style': ['error', 'as-needed'],
+      'block-scoped-var': 'error',
+      'camelcase': ['error', { properties: 'never' }],
+      'consistent-return': 'error',
+      'default-case': ['error', { commentPattern: '^no default$' }],
+      'default-case-last': 'error',
+      'default-param-last': 'error',
+      'dot-notation': 'error',
+      'eqeqeq': ['error', 'always', { null: 'ignore' }],
+      'func-names': 'warn',
+      // TODO: Add more rules that were previously enabled via airbnb's config
+    },
+  },
   // Wagtail custom rules
   {
     rules: {
