@@ -19,7 +19,7 @@ The package provides Wagtail's ESLint configuration as an extensible shared conf
 This package uses ESLint v9+ flat config format. Install it with its peer dependencies:
 
 ```sh
-npm install --save-dev @wagtail/eslint-config-wagtail@latest eslint@latest eslint-config-prettier@latest eslint-plugin-import@latest eslint-plugin-jsx-a11y@latest eslint-plugin-react@latest eslint-plugin-react-hooks@latest typescript-eslint@latest
+npm install --save-dev @wagtail/eslint-config-wagtail@latest eslint@latest eslint-config-prettier@latest eslint-import-resolver-typescript@latest eslint-plugin-import@latest eslint-plugin-jsx-a11y@latest eslint-plugin-react@latest eslint-plugin-react-hooks@latest typescript-eslint@latest
 ```
 
 Then, import and use the config in your `eslint.config.js` file:
@@ -38,6 +38,7 @@ export default [
 - [ESLint](https://eslint.org/)
 - [ESLint Flat Config](https://eslint.org/docs/latest/use/configure/configuration-files)
 - [typescript-eslint](https://typescript-eslint.io/)
+- [eslint-import-resolver-typescript](https://github.com/import-js/eslint-import-resolver-typescript)
 - [eslint-plugin-import](https://github.com/import-js/eslint-plugin-import)
 - [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
 - [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react)
@@ -118,7 +119,7 @@ With some Wagtail-specific customizations:
 | [`import/no-duplicates`][28]                                   | `1`      |                                                                   |
 | [`import/no-named-as-default`][29]                             | `1`      |                                                                   |
 | [`import/no-named-as-default-member`][30]                      | `1`      |                                                                   |
-| [`import/no-unresolved`][31]                                   | `2`      | [see Config][config]                                              |
+| [`import/no-unresolved`][31]                                   | `2`      |                                                                   |
 | [`jsx-a11y/alt-text`][32]                                      | `2`      |                                                                   |
 | [`jsx-a11y/anchor-has-content`][33]                            | `2`      |                                                                   |
 | [`jsx-a11y/anchor-is-valid`][34]                               | `2`      |                                                                   |

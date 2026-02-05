@@ -7,17 +7,6 @@ export default [
   },
   ...config,
   {
-    files: ['index.js'],
-    rules: {
-      'import/no-unresolved': [
-        'error',
-        {
-          ignore: ['^typescript-eslint$'],
-        },
-      ],
-    },
-  },
-  {
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -29,17 +18,9 @@ export default [
       // Manually set the version to disable automated detection of the "react" dependency.
       'react': { version: '999.999.999' },
       'import/resolver': {
-        node: {
-          extensions: ['.js', '.mjs', '.ts', '.tsx'],
-        },
+        typescript: true,
+        node: true,
       },
-    },
-  },
-  {
-    files: ['**/*.test.{js,mjs}'],
-    rules: {
-      'import/extensions': ['error', 'always'],
-      'import/no-commonjs': 'error',
     },
   },
 ];
