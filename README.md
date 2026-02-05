@@ -2,9 +2,9 @@
 
 [![npm](https://img.shields.io/npm/v/@wagtail/eslint-config-wagtail.svg)](https://www.npmjs.com/package/@wagtail/eslint-config-wagtail) [![Build status](https://github.com/wagtail/eslint-config-wagtail/workflows/CI/badge.svg)](https://github.com/wagtail/eslint-config-wagtail/actions)
 
-> Shareable ESLint config for Wagtail, based on airbnb/javascript.
+> Shareable ESLint config for Wagtail.
 
-The package provides Wagtail's `.eslintrc` as an extensible shared config.
+The package provides Wagtail's ESLint configuration as an extensible shared config using the new ESLint flat config format.
 
 - [Usage](#usage)
 - [Links](#links)
@@ -16,26 +16,47 @@ The package provides Wagtail's `.eslintrc` as an extensible shared config.
 
 ## Usage
 
-Our default export contains all of our ESLint rules, including Airbnb's config
-(which has ECMAScript 6 and React). It requires `eslint`, as well as the configuration’s peer dependencies.
+This package uses ESLint v9+ flat config format. Install it with its peer dependencies:
 
 ```sh
-# npm v7 and up:
-npm install --save-dev @wagtail/eslint-config-wagtail@latest
-# npm v6 and below:
-npx install-peerdeps --dev @wagtail/eslint-config-wagtail@latest
+npm install --save-dev @wagtail/eslint-config-wagtail@latest eslint@latest eslint-config-prettier@latest eslint-plugin-import@latest eslint-plugin-jsx-a11y@latest eslint-plugin-react@latest eslint-plugin-react-hooks@latest
+```
+
+Then, import and use the config in your `eslint.config.js` file:
+
+```js
+import wagtailConfig from '@wagtail/eslint-config-wagtail';
+
+export default [
+  ...wagtailConfig,
+  // Your custom config here
+];
 ```
 
 ## Links
 
 - [ESLint](https://eslint.org/)
-- [eslint-config-airbnb](https://github.com/airbnb/javascript)
+- [ESLint Flat Config](https://eslint.org/docs/latest/use/configure/configuration-files)
+- [eslint-plugin-import](https://github.com/import-js/eslint-plugin-import)
+- [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
+- [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react)
+- [eslint-plugin-react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
+- [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)
 
 ## Code style
 
-Write JavaScript according to the [Airbnb Styleguide](https://github.com/airbnb/javascript), with some exceptions:
+This ESLint config includes rules from:
 
-- Use soft-tabs with a two space indent. Spaces are the only way to guarantee code renders the same in any person’s environment.
+- ESLint recommended rules
+- Import plugin recommended rules
+- JSX A11y plugin recommended rules
+- React plugin recommended rules
+- React Hooks plugin recommended rules
+- Prettier config (to disable conflicting rules)
+
+With some Wagtail-specific customizations:
+
+- Use soft-tabs with a two space indent. Spaces are the only way to guarantee code renders the same in any person's environment.
 - We accept `snake_case` in object properties, such as `ajaxResponse.page_title`, however camelCase or UPPER_CASE should be used everywhere else.
 
 ## Contribution Guidelines
