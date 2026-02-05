@@ -4,32 +4,21 @@ import jsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import prettier from 'eslint-config-prettier';
+import tseslint from 'typescript-eslint';
 
 export default [
-  // ESLint recommended rules
   js.configs.recommended,
-
-  // Import plugin recommended rules
+  ...tseslint.configs.recommended,
   importPlugin.flatConfigs.recommended,
-
-  // JSX A11y plugin recommended rules
   jsxA11y.flatConfigs.recommended,
-
-  // React plugin recommended rules
   react.configs.flat.recommended,
-
-  // React Hooks plugin recommended rules
   {
     plugins: {
       'react-hooks': reactHooks,
     },
     rules: reactHooks.configs.recommended.rules,
   },
-
-  // Prettier config to disable conflicting rules
   prettier,
-
-  // Wagtail custom rules
   {
     rules: {
       // See https://github.com/wagtail/wagtail/pull/9482.
