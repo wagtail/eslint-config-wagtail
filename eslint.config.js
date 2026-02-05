@@ -1,0 +1,24 @@
+// eslint-disable-next-line import/no-unresolved
+import { defineConfig } from 'eslint/config';
+import config from './index.js';
+import globals from 'globals';
+
+export default defineConfig(
+  {
+    ignores: ['examples/**'],
+  },
+  ...config,
+  {
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        ...globals.node,
+      },
+    },
+    settings: {
+      // Manually set the version to disable automated detection of the "react" dependency.
+      react: { version: '999.999.999' },
+    },
+  },
+);

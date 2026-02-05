@@ -3,17 +3,15 @@ import { ESLint } from 'eslint';
 
 import config from '../index.js';
 
-const getComputedConfig = async (baseConfig) => {
+const getComputedConfig = async (overrideConfig) => {
   const eslint = new ESLint({
-    useEslintrc: false,
-    allowInlineConfig: false,
-    baseConfig,
+    overrideConfigFile: true,
+    overrideConfig,
   });
 
   const computedConfig = await eslint.calculateConfigForFile('index.js');
   // Delete env-specific config keys.
   delete computedConfig.filePath;
-  delete computedConfig.baseDirectory;
 
   return computedConfig;
 };

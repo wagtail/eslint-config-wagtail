@@ -1,19 +1,16 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { describe, it } from 'node:test';
 import { ESLint } from 'eslint';
-
-const dirname = path.dirname(fileURLToPath(import.meta.url));
+import config from '../eslint.config.js';
 
 const validExample = fs.readFileSync('./examples/valid.js', 'utf-8');
 const invalidExample = fs.readFileSync('./examples/invalid.js', 'utf-8');
 
 describe('linting', () => {
   const eslint = new ESLint({
-    useEslintrc: false,
-    overrideConfigFile: path.join(dirname, '..', '.eslintrc'),
+    overrideConfigFile: true,
+    overrideConfig: config,
   });
 
   it('flags no warnings when valid', async () => {
