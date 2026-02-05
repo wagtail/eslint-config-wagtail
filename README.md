@@ -79,14 +79,14 @@ With some Wagtail-specific customizations:
 | [`for-direction`][1]                                           | `error`  |                                                                   |
 | [`getter-return`][2]                                           | `error`  | `{"allowImplicit":false}`                                         |
 | [`id-length`][3]                                               | `warn`   | [see Config][config]                                              |
-| [`import/default`][4]                                          | `error`  |                                                                   |
-| [`import/export`][5]                                           | `error`  |                                                                   |
-| [`import/named`][6]                                            | `error`  |                                                                   |
-| [`import/namespace`][7]                                        | `error`  |                                                                   |
-| [`import/no-duplicates`][8]                                    | `warn`   |                                                                   |
-| [`import/no-named-as-default`][9]                              | `warn`   |                                                                   |
-| [`import/no-named-as-default-member`][10]                      | `warn`   |                                                                   |
-| [`import/no-unresolved`][11]                                   | `error`  |                                                                   |
+| [`import-x/default`][4]                                        | `error`  |                                                                   |
+| [`import-x/export`][5]                                         | `error`  |                                                                   |
+| [`import-x/named`][6]                                          | `error`  |                                                                   |
+| [`import-x/namespace`][7]                                      | `error`  |                                                                   |
+| [`import-x/no-duplicates`][8]                                  | `warn`   |                                                                   |
+| [`import-x/no-named-as-default`][9]                            | `warn`   |                                                                   |
+| [`import-x/no-named-as-default-member`][10]                    | `warn`   |                                                                   |
+| [`import-x/no-unresolved`][11]                                 | `error`  |                                                                   |
 | [`jsx-a11y/alt-text`][12]                                      | `error`  |                                                                   |
 | [`jsx-a11y/anchor-has-content`][13]                            | `error`  |                                                                   |
 | [`jsx-a11y/anchor-is-valid`][14]                               | `error`  |                                                                   |
@@ -222,14 +222,14 @@ With some Wagtail-specific customizations:
 [1]: https://eslint.org/docs/latest/rules/for-direction
 [2]: https://eslint.org/docs/latest/rules/getter-return
 [3]: https://eslint.org/docs/latest/rules/id-length
-[4]: https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/default.md
-[5]: https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/export.md
-[6]: https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/named.md
-[7]: https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/namespace.md
-[8]: https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md
-[9]: https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-named-as-default.md
-[10]: https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-named-as-default-member.md
-[11]: https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-unresolved.md
+[4]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/default.md
+[5]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/export.md
+[6]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/named.md
+[7]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/namespace.md
+[8]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-duplicates.md
+[9]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-named-as-default.md
+[10]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-named-as-default-member.md
+[11]: https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-unresolved.md
 [12]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/alt-text.md
 [13]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/anchor-has-content.md
 [14]: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/anchor-is-valid.md

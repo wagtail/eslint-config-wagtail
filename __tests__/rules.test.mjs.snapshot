@@ -165,14 +165,14 @@ exports[`rules snapshot > has stable config rules 1`] = `
         "requireStringLiterals": false
       }
     ],
-    "import/no-unresolved": "error",
-    "import/named": "error",
-    "import/namespace": "error",
-    "import/default": "error",
-    "import/export": "error",
-    "import/no-named-as-default": "warn",
-    "import/no-named-as-default-member": "warn",
-    "import/no-duplicates": "warn",
+    "import-x/no-unresolved": "error",
+    "import-x/named": "error",
+    "import-x/namespace": "error",
+    "import-x/default": "error",
+    "import-x/export": "error",
+    "import-x/no-named-as-default": "warn",
+    "import-x/no-named-as-default-member": "warn",
+    "import-x/no-duplicates": "warn",
     "react/display-name": "error",
     "react/jsx-key": "error",
     "react/jsx-no-comment-textnodes": "error",
@@ -836,7 +836,7 @@ exports[`rules snapshot > has stable config rules 1`] = `
   },
   "plugins": [
     "@",
-    "import:eslint-plugin-import@2.32.0",
+    "import-x:eslint-plugin-import-x@4.16.1",
     "react",
     "react-hooks:eslint-plugin-react-hooks@7.0.0",
     "jsx-a11y:eslint-plugin-jsx-a11y@6.10.2"
@@ -844,7 +844,7 @@ exports[`rules snapshot > has stable config rules 1`] = `
   "language": "@/js",
   "languageOptions": {
     "sourceType": "module",
-    "ecmaVersion": 2018,
+    "ecmaVersion": 2026,
     "parser": "espree@10.4.0",
     "parserOptions": {
       "ecmaFeatures": {
