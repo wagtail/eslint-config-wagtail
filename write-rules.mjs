@@ -142,7 +142,7 @@ ${tableRows
  */
 const writeRules = async () => {
   const eslint = new ESLint();
-  const { rules } = await eslint.calculateConfigForFile('.index.js');
+  const { rules } = await eslint.calculateConfigForFile('index.js');
 
   const markdownTable = createMarkdownTable(rules);
 
