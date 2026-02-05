@@ -1,5 +1,6 @@
 import { defineConfig } from 'eslint/config';
 import js from '@eslint/js';
+import { configs as tseslint } from 'typescript-eslint';
 import { importX } from 'eslint-plugin-import-x';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
@@ -8,7 +9,10 @@ import prettier from 'eslint-config-prettier';
 
 export default defineConfig(
   js.configs.recommended,
+  tseslint.strict,
+  tseslint.stylistic,
   importX.flatConfigs.recommended,
+  importX.flatConfigs.typescript,
   react.configs.flat.recommended,
   reactHooks.configs.flat.recommended,
   jsxA11y.flatConfigs.recommended,
