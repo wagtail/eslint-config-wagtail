@@ -35,9 +35,17 @@ const getUrl = (rule) => {
  * @returns {string}
  */
 const getPrettyConfig = (
-  [severity, ...config],
+  [severityLevel, ...config],
   { defaultValue = '', maxLength = 75 } = {},
 ) => {
+  const severityLabels = {
+    0: 'off',
+    1: 'warn',
+    2: 'error',
+  };
+
+  const severity = severityLabels[severityLevel];
+
   if (!Array.isArray(config)) return [severity, defaultValue];
 
   const configItems = config.filter((item) => typeof item !== 'boolean');
@@ -127,9 +135,9 @@ ${tableRows.map(([row]) => row).join('\n')}
 
 [config]: https://github.com/wagtail/eslint-config-wagtail/blob/main/index.js
 ${tableRows
-  .map(([, link]) => link)
-  .filter(Boolean)
-  .join('\n')}
+      .map(([, link]) => link)
+      .filter(Boolean)
+      .join('\n')}
 `;
 };
 
@@ -142,7 +150,7 @@ ${tableRows
  */
 const writeRules = async () => {
   const eslint = new ESLint();
-  const { rules } = await eslint.calculateConfigForFile('.index.js');
+  const { rules } = await eslint.calculateConfigForFile('index.js');
 
   const markdownTable = createMarkdownTable(rules);
 
