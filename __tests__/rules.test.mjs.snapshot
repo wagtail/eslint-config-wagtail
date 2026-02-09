@@ -1371,7 +1371,6 @@ exports[`rules snapshot > has stable config rules 1`] = `
     ],
     "prefer-rest-params": "error",
     "prefer-spread": "error",
-    "prefer-template": "off",
     "radix": [
       "error",
       "always"
@@ -1523,14 +1522,6 @@ exports[`rules snapshot > has stable config rules 1`] = `
         "onlyEquality": false
       }
     ],
-    "class-methods-use-this": [
-      "off",
-      {
-        "enforceForClassFields": true,
-        "exceptMethods": [],
-        "ignoreOverrideMethods": false
-      }
-    ],
     "id-length": [
       "warn",
       {
@@ -1551,30 +1542,12 @@ exports[`rules snapshot > has stable config rules 1`] = `
         "properties": "always"
       }
     ],
-    "max-classes-per-file": "off",
     "no-new": "warn",
-    "no-var": "off",
-    "no-warning-comments": [
-      "off",
-      {
-        "location": "start",
-        "terms": [
-          "todo",
-          "fixme",
-          "xxx"
-        ]
-      }
-    ],
     "object-shorthand": [
       "error",
       "methods"
     ],
-    "no-param-reassign": [
-      "error",
-      {
-        "props": false
-      }
-    ],
+    "no-param-reassign": "error",
     "no-restricted-syntax": [
       "error",
       {
@@ -1589,14 +1562,7 @@ exports[`rules snapshot > has stable config rules 1`] = `
         "selector": "WithStatement",
         "message": "\`with\` is disallowed in strict mode because it makes code impossible to predict and optimize."
       }
-    ],
-    "react/jsx-boolean-value": "off",
-    "react/jsx-no-bind": "off",
-    "react/prefer-es6-class": [
-      "off",
-      "never"
-    ],
-    "react/sort-comp": "off"
+    ]
   },
   "plugins": [
     "@",

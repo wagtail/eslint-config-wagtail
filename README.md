@@ -255,7 +255,7 @@ With some Wagtail-specific customizations:
 | [`no-object-constructor`][177]                                     | `error`  |                                                                           |
 | [`no-octal`][178]                                                  | `error`  |                                                                           |
 | [`no-octal-escape`][179]                                           | `error`  |                                                                           |
-| [`no-param-reassign`][180]                                         | `error`  | `{"props":false}`                                                         |
+| [`no-param-reassign`][180]                                         | `error`  |                                                                           |
 | [`no-plusplus`][181]                                               | `error`  | `{"allowForLoopAfterthoughts":false}`                                     |
 | [`no-promise-executor-return`][182]                                | `error`  | `{"allowVoid":false}`                                                     |
 | [`no-proto`][183]                                                  | `error`  |                                                                           |

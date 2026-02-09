@@ -348,7 +348,6 @@ export default defineConfig(
       'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
       'prefer-rest-params': 'error',
       'prefer-spread': 'error',
-      'prefer-template': 'error',
       'radix': 'error',
       'react-hooks/exhaustive-deps': 'error',
       'react/button-has-type': ['error', { reset: false }],
@@ -460,8 +459,6 @@ export default defineConfig(
   // Wagtail custom rules
   {
     rules: {
-      // See https://github.com/wagtail/wagtail/pull/9482.
-      'class-methods-use-this': 'off',
       'id-length': [
         'warn',
         {
@@ -469,19 +466,9 @@ export default defineConfig(
           exceptions: ['x', 'y', 'e', 'i', 'j', 'k', 'd', 'n', '_', '$'],
         },
       ],
-      // See https://github.com/wagtail/wagtail/pull/9483.
-      'max-classes-per-file': 'off',
       'no-new': ['warn'],
-      'no-var': ['off'],
-      'no-warning-comments': ['off'],
       'object-shorthand': ['error', 'methods'],
-      'prefer-template': ['off'],
-      'no-param-reassign': [
-        'error',
-        {
-          props: false,
-        },
-      ],
+      'no-param-reassign': 'error',
       // Disallow with and label, allow for-in and for-of
       // https://eslint.org/docs/rules/no-restricted-syntax
       'no-restricted-syntax': [
@@ -502,10 +489,6 @@ export default defineConfig(
             '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
         },
       ],
-      'react/jsx-boolean-value': ['off'],
-      'react/jsx-no-bind': ['off'],
-      'react/prefer-es6-class': ['off', 'never'],
-      'react/sort-comp': ['off'],
       'react/prop-types': ['off'],
     },
   },
