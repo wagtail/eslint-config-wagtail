@@ -13,6 +13,24 @@ const getComputedConfig = async (overrideConfig) => {
   // Delete env-specific config keys.
   delete computedConfig.filePath;
 
+  const severityLabels = {
+    0: 'off',
+    1: 'warn',
+    2: 'error',
+  };
+
+  computedConfig.rules = Object.fromEntries(
+    Object.entries(computedConfig.rules).map(
+      ([rule, cfg]) => {
+        if (Array.isArray(cfg)) {
+          const [severity, ...rest] = cfg;
+          return [rule, [severityLabels[severity], ...rest]];
+        }
+        return [rule, [severityLabels[cfg]]];
+      },
+    ),
+  );
+
   return computedConfig;
 };
 
