@@ -22,7 +22,7 @@ const getUrl = (rule) => {
       `https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/${ruleName}.md`,
     'react': () =>
       `https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/${ruleName}.md`,
-    'react-hooks': () => 'https://legacy.reactjs.org/docs/hooks-rules.html',
+    'react-hooks': () => `https://react.dev/reference/eslint-plugin-react-hooks/lints/${ruleName}`,
   };
 
   return (nonCoreRules[group] || (() => null))();
