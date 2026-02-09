@@ -1024,7 +1024,6 @@ exports[`rules snapshot > has stable config rules 1`] = `
         "warnOnUnassignedImports": false
       }
     ],
-    "import-x/prefer-default-export": "error",
     "jsx-a11y/lang": "error",
     "lines-between-class-members": [
       "error",
@@ -1336,22 +1335,6 @@ exports[`rules snapshot > has stable config rules 1`] = `
       {
         "destructuring": "any",
         "ignoreReadBeforeAssign": true
-      }
-    ],
-    "prefer-destructuring": [
-      "error",
-      {
-        "VariableDeclarator": {
-          "array": false,
-          "object": true
-        },
-        "AssignmentExpression": {
-          "array": true,
-          "object": false
-        }
-      },
-      {
-        "enforceForRenamedProperties": false
       }
     ],
     "prefer-exponentiation-operator": "error",

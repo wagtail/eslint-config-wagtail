@@ -104,7 +104,6 @@ export default defineConfig(
           named: true,
         },
       ],
-      'import-x/prefer-default-export': 'error',
       'jsx-a11y/control-has-associated-label': [
         'error',
         {
@@ -325,22 +324,6 @@ export default defineConfig(
       'operator-assignment': 'error',
       'prefer-arrow-callback': 'error',
       'prefer-const': ['error', { ignoreReadBeforeAssign: true }],
-      'prefer-destructuring': [
-        'error',
-        {
-          VariableDeclarator: {
-            array: false,
-            object: true,
-          },
-          AssignmentExpression: {
-            array: true,
-            object: false,
-          },
-        },
-        {
-          enforceForRenamedProperties: false,
-        },
-      ],
       'prefer-exponentiation-operator': 'error',
       'prefer-numeric-literals': 'error',
       'prefer-object-spread': 'error',
