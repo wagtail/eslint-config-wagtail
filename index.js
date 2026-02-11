@@ -67,6 +67,7 @@ export default defineConfig(
             '**/spec/**', // mocha, rspec-like pattern
             '**/__tests__/**', // jest pattern
             '**/__mocks__/**', // jest pattern
+            'scripts/**', // Wagtail scripts
             'test.{js,jsx,ts,tsx}', // repos with a single test file
             'test-*.{js,jsx,ts,tsx}', // repos with multiple top-level test files
             '**/*{.,_}{test,spec}.{js,jsx,ts,tsx}', // tests where the extension or filename suffix denotes that it is a test
@@ -142,7 +143,7 @@ export default defineConfig(
       'lines-between-class-members': [
         'error',
         'always',
-        { exceptAfterSingleLine: false },
+        { exceptAfterSingleLine: true },
       ],
       'new-cap': [
         'error',
@@ -441,11 +442,26 @@ export default defineConfig(
   // Wagtail custom rules
   {
     rules: {
+      // Good compromise between verbosity and readability.
+      '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
+      // Prefer Record<K, V> in simple cases, but cannot enforce it as the
+      // index-signature { [name: string]: value } style is more readable when
+      // there is an explicit name for the key e.g. [href: string].
+      '@typescript-eslint/consistent-indexed-object-style': 'off',
+      // Enabled from tseslint.strict, relaxed to allow constructor-only classes,
+      // which can be useful for Error subclasses and telepath adapters.
+      '@typescript-eslint/no-extraneous-class': [
+        'error',
+        { allowConstructorOnly: true },
+      ],
+      // Can be useful when we're absolutely sure the value is not null, e.g.
+      // when working with the DOM, but generally should be used sparingly.
+      '@typescript-eslint/no-non-null-assertion': 'off',
       'id-length': [
         'warn',
         {
           min: 2,
-          exceptions: ['x', 'y', 'e', 'i', 'j', 'k', 'd', 'n', '_', '$'],
+          exceptions: ['x', 'y', 'e', 'h', 'i', 'j', 'k', 'd', 'n', '_', '$'],
         },
       ],
       // This rule does not work well with allowSyntheticDefaultImports (implied
