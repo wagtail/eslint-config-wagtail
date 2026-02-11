@@ -5,12 +5,12 @@ import { importX } from 'eslint-plugin-import-x';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
-import { configs as tseslint } from 'typescript-eslint';
+import tseslint from 'typescript-eslint';
 
 export default defineConfig(
   js.configs.recommended,
-  tseslint.strict,
-  tseslint.stylistic,
+  tseslint.configs.strict,
+  tseslint.configs.stylistic,
   importX.flatConfigs.recommended,
   importX.flatConfigs.typescript,
   react.configs.flat.recommended,
@@ -86,7 +86,6 @@ export default defineConfig(
         },
       ],
       'import-x/no-named-as-default': 'error',
-      'import-x/no-named-as-default-member': 'error',
       'import-x/no-mutable-exports': 'error',
       'import-x/no-named-default': 'error',
       'import-x/no-relative-packages': 'error',
@@ -449,6 +448,10 @@ export default defineConfig(
           exceptions: ['x', 'y', 'e', 'i', 'j', 'k', 'd', 'n', '_', '$'],
         },
       ],
+      // This rule does not work well with allowSyntheticDefaultImports (implied
+      // via esModuleInterop enabled in Wagtail), which would force us to use
+      // named imports in cases like `axe.run()` etc.
+      'import-x/no-named-as-default-member': 'off',
       'no-new': ['warn'],
       'object-shorthand': ['error', 'methods'],
       'no-param-reassign': 'error',

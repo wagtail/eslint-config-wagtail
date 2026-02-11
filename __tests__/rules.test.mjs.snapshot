@@ -294,7 +294,7 @@ exports[`rules snapshot > has stable config rules 1`] = `
     "import-x/default": "error",
     "import-x/export": "error",
     "import-x/no-named-as-default": "error",
-    "import-x/no-named-as-default-member": "error",
+    "import-x/no-named-as-default-member": "off",
     "import-x/no-duplicates": "error",
     "react/display-name": "error",
     "react/jsx-key": "error",
