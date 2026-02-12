@@ -1,4 +1,5 @@
 import js from '@eslint/js';
+import stylistic from '@stylistic/eslint-plugin';
 import { defineConfig } from 'eslint/config';
 import prettier from 'eslint-config-prettier';
 import { importX } from 'eslint-plugin-import-x';
@@ -19,7 +20,30 @@ export default defineConfig(
   prettier,
   // Rules previously enabled via airbnb's config
   {
+    plugins: {
+      '@stylistic': stylistic,
+    },
     rules: {
+      '@stylistic/lines-between-class-members': [
+        'error',
+        'always',
+        { exceptAfterSingleLine: true },
+      ],
+      '@stylistic/spaced-comment': [
+        'error',
+        'always',
+        {
+          line: {
+            exceptions: ['-', '+'],
+            markers: ['=', '!', '/'],
+          },
+          block: {
+            exceptions: ['-', '+'],
+            markers: ['=', '!', ':', '::'],
+            balanced: true,
+          },
+        },
+      ],
       '@typescript-eslint/no-empty-function': [
         'error',
         { allow: ['arrowFunctions', 'functions', 'methods'] },
@@ -140,11 +164,6 @@ export default defineConfig(
         },
       ],
       'jsx-a11y/lang': 'error',
-      'lines-between-class-members': [
-        'error',
-        'always',
-        { exceptAfterSingleLine: true },
-      ],
       'new-cap': [
         'error',
         {
@@ -411,21 +430,6 @@ export default defineConfig(
       'react/static-property-placement': ['error', 'property assignment'],
       'react/style-prop-object': 'error',
       'react/void-dom-elements-no-children': 'error',
-      'spaced-comment': [
-        'error',
-        'always',
-        {
-          line: {
-            exceptions: ['-', '+'],
-            markers: ['=', '!', '/'],
-          },
-          block: {
-            exceptions: ['-', '+'],
-            markers: ['=', '!', ':', '::'],
-            balanced: true,
-          },
-        },
-      ],
       'strict': ['error', 'never'],
       'symbol-description': 'error',
       'unicode-bom': ['error', 'never'],

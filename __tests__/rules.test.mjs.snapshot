@@ -546,12 +546,84 @@ exports[`rules snapshot > has stable config rules 1`] = `
       "off",
       "all"
     ],
-    "@stylistic/lines-around-comment": "off",
-    "@stylistic/max-len": "off",
-    "@stylistic/no-confusing-arrow": "off",
-    "@stylistic/no-mixed-operators": "off",
-    "@stylistic/no-tabs": "off",
-    "@stylistic/quotes": "off",
+    "@stylistic/lines-around-comment": [
+      "off",
+      {
+        "beforeBlockComment": true
+      }
+    ],
+    "@stylistic/max-len": [
+      "off",
+      {
+        "code": 80,
+        "tabWidth": 4
+      }
+    ],
+    "@stylistic/no-confusing-arrow": [
+      "off",
+      {
+        "allowParens": true,
+        "onlyOneSimpleParam": false
+      }
+    ],
+    "@stylistic/no-mixed-operators": [
+      "off",
+      {
+        "groups": [
+          [
+            "+",
+            "-",
+            "*",
+            "/",
+            "%",
+            "**"
+          ],
+          [
+            "&",
+            "|",
+            "^",
+            "~",
+            "<<",
+            ">>",
+            ">>>"
+          ],
+          [
+            "==",
+            "!=",
+            "===",
+            "!==",
+            ">",
+            ">=",
+            "<",
+            "<="
+          ],
+          [
+            "&&",
+            "||"
+          ],
+          [
+            "in",
+            "instanceof"
+          ]
+        ],
+        "allowSamePrecedence": true
+      }
+    ],
+    "@stylistic/no-tabs": [
+      "off",
+      {
+        "allowIndentationTabs": false
+      }
+    ],
+    "@stylistic/quotes": [
+      "off",
+      "double",
+      {
+        "allowTemplateLiterals": "never",
+        "avoidEscape": false,
+        "ignoreStringLiterals": false
+      }
+    ],
     "@stylistic/js/lines-around-comment": "off",
     "@stylistic/js/max-len": "off",
     "@stylistic/js/no-confusing-arrow": "off",
@@ -569,82 +641,374 @@ exports[`rules snapshot > has stable config rules 1`] = `
     "@babel/object-curly-spacing": "off",
     "@babel/semi": "off",
     "@stylistic/array-bracket-newline": "off",
-    "@stylistic/array-bracket-spacing": "off",
+    "@stylistic/array-bracket-spacing": [
+      "off",
+      "never"
+    ],
     "@stylistic/array-element-newline": "off",
-    "@stylistic/arrow-parens": "off",
-    "@stylistic/arrow-spacing": "off",
-    "@stylistic/block-spacing": "off",
-    "@stylistic/brace-style": "off",
-    "@stylistic/comma-dangle": "off",
-    "@stylistic/comma-spacing": "off",
-    "@stylistic/comma-style": "off",
-    "@stylistic/computed-property-spacing": "off",
-    "@stylistic/dot-location": "off",
-    "@stylistic/eol-last": "off",
+    "@stylistic/arrow-parens": [
+      "off",
+      "always"
+    ],
+    "@stylistic/arrow-spacing": [
+      "off",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "@stylistic/block-spacing": [
+      "off",
+      "always"
+    ],
+    "@stylistic/brace-style": [
+      "off",
+      "1tbs",
+      {
+        "allowSingleLine": false
+      }
+    ],
+    "@stylistic/comma-dangle": [
+      "off",
+      "never"
+    ],
+    "@stylistic/comma-spacing": [
+      "off",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "@stylistic/comma-style": [
+      "off",
+      "last"
+    ],
+    "@stylistic/computed-property-spacing": [
+      "off",
+      "never",
+      {
+        "enforceForClassMembers": true
+      }
+    ],
+    "@stylistic/dot-location": [
+      "off",
+      "object"
+    ],
+    "@stylistic/eol-last": [
+      "off",
+      "always"
+    ],
     "@stylistic/func-call-spacing": "off",
-    "@stylistic/function-call-argument-newline": "off",
-    "@stylistic/function-call-spacing": "off",
-    "@stylistic/function-paren-newline": "off",
-    "@stylistic/generator-star-spacing": "off",
-    "@stylistic/implicit-arrow-linebreak": "off",
-    "@stylistic/indent": "off",
-    "@stylistic/jsx-quotes": "off",
-    "@stylistic/key-spacing": "off",
-    "@stylistic/keyword-spacing": "off",
-    "@stylistic/linebreak-style": "off",
-    "@stylistic/max-statements-per-line": "off",
-    "@stylistic/multiline-ternary": "off",
-    "@stylistic/new-parens": "off",
-    "@stylistic/newline-per-chained-call": "off",
-    "@stylistic/no-extra-parens": "off",
+    "@stylistic/function-call-argument-newline": [
+      "off",
+      "always"
+    ],
+    "@stylistic/function-call-spacing": [
+      "off",
+      "never"
+    ],
+    "@stylistic/function-paren-newline": [
+      "off",
+      "multiline"
+    ],
+    "@stylistic/generator-star-spacing": [
+      "off",
+      {
+        "before": true,
+        "after": false
+      }
+    ],
+    "@stylistic/implicit-arrow-linebreak": [
+      "off",
+      "beside"
+    ],
+    "@stylistic/indent": [
+      "off",
+      4,
+      {
+        "SwitchCase": 1,
+        "flatTernaryExpressions": false,
+        "ignoredNodes": []
+      }
+    ],
+    "@stylistic/jsx-quotes": [
+      "off",
+      "prefer-double"
+    ],
+    "@stylistic/key-spacing": [
+      "off",
+      {}
+    ],
+    "@stylistic/keyword-spacing": [
+      "off",
+      {
+        "before": true,
+        "after": true,
+        "overrides": {}
+      }
+    ],
+    "@stylistic/linebreak-style": [
+      "off",
+      "unix"
+    ],
+    "@stylistic/max-statements-per-line": [
+      "off",
+      {
+        "max": 1
+      }
+    ],
+    "@stylistic/multiline-ternary": [
+      "off",
+      "always"
+    ],
+    "@stylistic/new-parens": [
+      "off",
+      "always"
+    ],
+    "@stylistic/newline-per-chained-call": [
+      "off",
+      {
+        "ignoreChainWithDepth": 2
+      }
+    ],
+    "@stylistic/no-extra-parens": [
+      "off",
+      "all"
+    ],
     "@stylistic/no-extra-semi": "off",
     "@stylistic/no-floating-decimal": "off",
-    "@stylistic/no-mixed-spaces-and-tabs": "off",
-    "@stylistic/no-multi-spaces": "off",
-    "@stylistic/no-multiple-empty-lines": "off",
-    "@stylistic/no-trailing-spaces": "off",
+    "@stylistic/no-mixed-spaces-and-tabs": [
+      "off",
+      false
+    ],
+    "@stylistic/no-multi-spaces": [
+      "off",
+      {
+        "exceptions": {
+          "Property": true,
+          "ImportAttribute": true
+        },
+        "ignoreEOLComments": false,
+        "includeTabs": true
+      }
+    ],
+    "@stylistic/no-multiple-empty-lines": [
+      "off",
+      {
+        "max": 2
+      }
+    ],
+    "@stylistic/no-trailing-spaces": [
+      "off",
+      {
+        "skipBlankLines": false,
+        "ignoreComments": false
+      }
+    ],
     "@stylistic/no-whitespace-before-property": "off",
-    "@stylistic/nonblock-statement-body-position": "off",
+    "@stylistic/nonblock-statement-body-position": [
+      "off",
+      "beside"
+    ],
     "@stylistic/object-curly-newline": "off",
-    "@stylistic/object-curly-spacing": "off",
-    "@stylistic/object-property-newline": "off",
-    "@stylistic/one-var-declaration-per-line": "off",
+    "@stylistic/object-curly-spacing": [
+      "off",
+      "never"
+    ],
+    "@stylistic/object-property-newline": [
+      "off",
+      {
+        "allowAllPropertiesOnSameLine": false
+      }
+    ],
+    "@stylistic/one-var-declaration-per-line": [
+      "off",
+      "initializations"
+    ],
     "@stylistic/operator-linebreak": "off",
-    "@stylistic/padded-blocks": "off",
-    "@stylistic/quote-props": "off",
-    "@stylistic/rest-spread-spacing": "off",
-    "@stylistic/semi": "off",
-    "@stylistic/semi-spacing": "off",
-    "@stylistic/semi-style": "off",
-    "@stylistic/space-before-blocks": "off",
-    "@stylistic/space-before-function-paren": "off",
-    "@stylistic/space-in-parens": "off",
-    "@stylistic/space-infix-ops": "off",
-    "@stylistic/space-unary-ops": "off",
-    "@stylistic/switch-colon-spacing": "off",
-    "@stylistic/template-curly-spacing": "off",
-    "@stylistic/template-tag-spacing": "off",
-    "@stylistic/wrap-iife": "off",
+    "@stylistic/padded-blocks": [
+      "off",
+      "always",
+      {
+        "allowSingleLineBlocks": false
+      }
+    ],
+    "@stylistic/quote-props": [
+      "off",
+      "always"
+    ],
+    "@stylistic/rest-spread-spacing": [
+      "off",
+      "never"
+    ],
+    "@stylistic/semi": [
+      "off",
+      "always"
+    ],
+    "@stylistic/semi-spacing": [
+      "off",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "@stylistic/semi-style": [
+      "off",
+      "last"
+    ],
+    "@stylistic/space-before-blocks": [
+      "off",
+      "always"
+    ],
+    "@stylistic/space-before-function-paren": [
+      "off",
+      "always"
+    ],
+    "@stylistic/space-in-parens": [
+      "off",
+      "never"
+    ],
+    "@stylistic/space-infix-ops": [
+      "off",
+      {
+        "int32Hint": false,
+        "ignoreTypes": false
+      }
+    ],
+    "@stylistic/space-unary-ops": [
+      "off",
+      {
+        "words": true,
+        "nonwords": false
+      }
+    ],
+    "@stylistic/switch-colon-spacing": [
+      "off",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "@stylistic/template-curly-spacing": [
+      "off",
+      "never"
+    ],
+    "@stylistic/template-tag-spacing": [
+      "off",
+      "never"
+    ],
+    "@stylistic/wrap-iife": [
+      "off",
+      "outside",
+      {
+        "functionPrototypeMethods": false
+      }
+    ],
     "@stylistic/wrap-regex": "off",
-    "@stylistic/yield-star-spacing": "off",
-    "@stylistic/member-delimiter-style": "off",
-    "@stylistic/type-annotation-spacing": "off",
+    "@stylistic/yield-star-spacing": [
+      "off",
+      "after"
+    ],
+    "@stylistic/member-delimiter-style": [
+      "off",
+      {
+        "multiline": {
+          "delimiter": "semi",
+          "requireLast": true
+        },
+        "singleline": {
+          "delimiter": "semi",
+          "requireLast": false
+        },
+        "multilineDetection": "brackets"
+      }
+    ],
+    "@stylistic/type-annotation-spacing": [
+      "off",
+      {}
+    ],
     "@stylistic/jsx-child-element-spacing": "off",
-    "@stylistic/jsx-closing-bracket-location": "off",
-    "@stylistic/jsx-closing-tag-location": "off",
-    "@stylistic/jsx-curly-newline": "off",
-    "@stylistic/jsx-curly-spacing": "off",
-    "@stylistic/jsx-equals-spacing": "off",
-    "@stylistic/jsx-first-prop-new-line": "off",
-    "@stylistic/jsx-indent": "off",
-    "@stylistic/jsx-indent-props": "off",
-    "@stylistic/jsx-max-props-per-line": "off",
-    "@stylistic/jsx-newline": "off",
-    "@stylistic/jsx-one-expression-per-line": "off",
+    "@stylistic/jsx-closing-bracket-location": [
+      "off",
+      "tag-aligned"
+    ],
+    "@stylistic/jsx-closing-tag-location": [
+      "off",
+      "tag-aligned"
+    ],
+    "@stylistic/jsx-curly-newline": [
+      "off",
+      "consistent"
+    ],
+    "@stylistic/jsx-curly-spacing": [
+      "off",
+      {
+        "when": "never",
+        "allowMultiline": true
+      }
+    ],
+    "@stylistic/jsx-equals-spacing": [
+      "off",
+      "never"
+    ],
+    "@stylistic/jsx-first-prop-new-line": [
+      "off",
+      "multiline-multiprop"
+    ],
+    "@stylistic/jsx-indent": [
+      "off",
+      4
+    ],
+    "@stylistic/jsx-indent-props": [
+      "off",
+      4
+    ],
+    "@stylistic/jsx-max-props-per-line": [
+      "off",
+      {
+        "maximum": 1
+      }
+    ],
+    "@stylistic/jsx-newline": [
+      "off",
+      {
+        "prevent": false,
+        "allowMultilines": false
+      }
+    ],
+    "@stylistic/jsx-one-expression-per-line": [
+      "off",
+      {
+        "allow": "none"
+      }
+    ],
     "@stylistic/jsx-props-no-multi-spaces": "off",
-    "@stylistic/jsx-tag-spacing": "off",
-    "@stylistic/jsx-wrap-multilines": "off",
-    "@stylistic/indent-binary-ops": "off",
+    "@stylistic/jsx-tag-spacing": [
+      "off",
+      {
+        "closingSlash": "never",
+        "beforeSelfClosing": "always",
+        "afterOpening": "never",
+        "beforeClosing": "allow"
+      }
+    ],
+    "@stylistic/jsx-wrap-multilines": [
+      "off",
+      {
+        "declaration": "parens",
+        "assignment": "parens",
+        "return": "parens",
+        "arrow": "parens",
+        "condition": "ignore",
+        "logical": "ignore",
+        "prop": "ignore",
+        "propertyValue": "ignore"
+      }
+    ],
+    "@stylistic/indent-binary-ops": [
+      "off",
+      2
+    ],
     "@stylistic/type-generic-spacing": "off",
     "@stylistic/type-named-tuple-spacing": "off",
     "@stylistic/js/array-bracket-newline": "off",
@@ -902,6 +1266,44 @@ exports[`rules snapshot > has stable config rules 1`] = `
     "wrap-regex": "off",
     "yield-star-spacing": "off",
     "react/jsx-space-before-closing": "off",
+    "@stylistic/lines-between-class-members": [
+      "error",
+      "always",
+      {
+        "exceptAfterOverload": true,
+        "exceptAfterSingleLine": true
+      }
+    ],
+    "@stylistic/spaced-comment": [
+      "error",
+      "always",
+      {
+        "line": {
+          "exceptions": [
+            "-",
+            "+"
+          ],
+          "markers": [
+            "=",
+            "!",
+            "/"
+          ]
+        },
+        "block": {
+          "exceptions": [
+            "-",
+            "+"
+          ],
+          "markers": [
+            "=",
+            "!",
+            ":",
+            "::"
+          ],
+          "balanced": true
+        }
+      }
+    ],
     "@typescript-eslint/no-shadow": "error",
     "@typescript-eslint/no-use-before-define": "error",
     "array-callback-return": [
@@ -1036,13 +1438,6 @@ exports[`rules snapshot > has stable config rules 1`] = `
       }
     ],
     "jsx-a11y/lang": "error",
-    "lines-between-class-members": [
-      "error",
-      "always",
-      {
-        "exceptAfterSingleLine": true
-      }
-    ],
     "new-cap": [
       "error",
       {
@@ -1468,36 +1863,6 @@ exports[`rules snapshot > has stable config rules 1`] = `
     ],
     "react/style-prop-object": "error",
     "react/void-dom-elements-no-children": "error",
-    "spaced-comment": [
-      "error",
-      "always",
-      {
-        "line": {
-          "exceptions": [
-            "-",
-            "+"
-          ],
-          "markers": [
-            "=",
-            "!",
-            "/"
-          ]
-        },
-        "block": {
-          "exceptions": [
-            "-",
-            "+"
-          ],
-          "markers": [
-            "=",
-            "!",
-            ":",
-            "::"
-          ],
-          "balanced": true
-        }
-      }
-    ],
     "strict": [
       "error",
       "never"
@@ -1565,7 +1930,8 @@ exports[`rules snapshot > has stable config rules 1`] = `
     "import-x:eslint-plugin-import-x@4.16.1",
     "react",
     "react-hooks:eslint-plugin-react-hooks@7.0.0",
-    "jsx-a11y:eslint-plugin-jsx-a11y@6.10.2"
+    "jsx-a11y:eslint-plugin-jsx-a11y@6.10.2",
+    "@stylistic:@stylistic/eslint-plugin@5.8.0"
   ],
   "language": "@/js",
   "languageOptions": {
