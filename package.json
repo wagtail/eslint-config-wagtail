@@ -1,6 +1,6 @@
 {
   "name": "@wagtail/eslint-config-wagtail",
-  "version": "0.6.0-rc1",
+  "version": "0.6.0-rc1.0",
   "description": "Shareable ESLint config for Wagtail",
   "type": "module",
   "main": "index.js",
