@@ -14,6 +14,7 @@ const getUrl = (rule) => {
   const [group, ruleName] = parts;
 
   const nonCoreRules = {
+    '@stylistic': () => `https://eslint.style/rules/${ruleName}`,
     '@typescript-eslint': () =>
       `https://typescript-eslint.io/rules/${ruleName}/`,
     'import-x': () =>
