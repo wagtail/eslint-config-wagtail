@@ -172,7 +172,7 @@ With some Wagtail-specific customizations:
 | [`jsx-a11y/iframe-has-title`][94]                                  | `error`  |                                                                           |
 | [`jsx-a11y/img-redundant-alt`][95]                                 | `error`  |                                                                           |
 | [`jsx-a11y/interactive-supports-focus`][96]                        | `error`  | [see Config][config]                                                      |
-| [`jsx-a11y/label-has-associated-control`][97]                      | `error`  | `{"assert":"both","depth":25}`                                            |
+| [`jsx-a11y/label-has-associated-control`][97]                      | `error`  | `{"assert":"either","depth":25}`                                          |
 | [`jsx-a11y/lang`][98]                                              | `error`  |                                                                           |
 | [`jsx-a11y/media-has-caption`][99]                                 | `error`  |                                                                           |
 | [`jsx-a11y/mouse-events-have-key-events`][100]                     | `error`  |                                                                           |

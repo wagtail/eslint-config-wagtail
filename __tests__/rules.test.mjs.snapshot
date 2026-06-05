@@ -412,7 +412,7 @@ exports[`rules snapshot > has stable config rules 1`] = `
     "jsx-a11y/label-has-associated-control": [
       "error",
       {
-        "assert": "both",
+        "assert": "either",
         "depth": 25
       }
     ],

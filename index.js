@@ -159,7 +159,7 @@ export default defineConfig(
       'jsx-a11y/label-has-associated-control': [
         'error',
         {
-          assert: 'both',
+          assert: 'either',
           depth: 25,
         },
       ],
