@@ -4,6 +4,11 @@
   "description": "Shareable ESLint config for Wagtail",
   "type": "module",
   "main": "index.js",
+  "devEngines": {
+    "packageManager": {
+      "name": "npm"
+    }
+  },
   "files": [
     "index.js"
   ],
