@@ -7,6 +7,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.6.0](https://github.com/wagtail/eslint-config-wagtail/releases/tag/v0.6.0) - 2026-06-05
+
+### Changed
+
+- Migrated to ESLint 9 and the flat config format (`eslint.config.js`), dropping the Airbnb config in favor of ESLint, `typescript-eslint`, `eslint-plugin-import-x`, and `@stylistic/eslint-plugin` recommended rules, with a curated set of previously-adopted Airbnb rules and Wagtail-specific overrides reinstated on top.
+- Added TypeScript support via `typescript-eslint`.
+- Replaced `eslint-plugin-import` with `eslint-plugin-import-x`.
+- Allow `assert: either` for `jsx-a11y/label-has-associated-control`.
+- Migrated internal build and test tooling to ES Modules and the Node.js test runner, removing the dependency on Jest.
+
+### BREAKING CHANGES
+
+This release changes the config to ESLint’s flat config format, and updates most of the config’s dependencies:
+
+| package                           | from    | to      |
+| --------------------------------- | ------- | ------- |
+| eslint                            | ^8.55.0 | ^9      |
+| eslint-config-airbnb              | ^19.0.4 | removed |
+| eslint-config-prettier            | ^9.1.0  | ^10.1.0 |
+| eslint-plugin-import              | ^2.29.0 | removed |
+| eslint-plugin-import-x            |         | ^4.16.1 |
+| eslint-plugin-jsx-a11y            | ^6.8.0  | ^6.10.0 |
+| eslint-plugin-react               | ^7.33.2 | ^7.37.0 |
+| eslint-plugin-react-hooks         | ^4.6.0  | ^7.0.1  |
+| eslint-import-resolver-typescript |         | ^4.4.0  |
+| typescript-eslint                 |         | ^8.54.0 |
+| @eslint/js                        |         | ^9      |
+| @stylistic/eslint-plugin          |         | ^5.8.0  |
+
+Consumers need to migrate their `.eslintrc` to an `eslint.config.js` flat config, and update the peer dependencies listed above. See the [README](https://github.com/wagtail/eslint-config-wagtail#usage) for the new setup instructions.
+
 ## [v0.5.0](https://github.com/wagtail/eslint-config-wagtail/releases/tag/v0.5.0) - 2025-07-08)
 
 ### Changed
