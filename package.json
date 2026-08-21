@@ -4,11 +4,6 @@
   "description": "Shareable ESLint config for Wagtail",
   "type": "module",
   "main": "index.js",
-  "devEngines": {
-    "packageManager": {
-      "name": "npm"
-    }
-  },
   "files": [
     "index.js"
   ],
@@ -21,6 +16,11 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wagtail/eslint-config-wagtail.git"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "npm"
+    }
   },
   "keywords": [
     "config",
@@ -58,8 +58,8 @@
     "typescript-eslint": "^8.54.0"
   },
   "scripts": {
-    "format": "prettier --write '**/*.{js,md,css,scss,yaml,yml,json}'",
-    "lint:format": "prettier --check '**/*.{js,md,css,scss,yaml,yml,json}'",
+    "format": "prettier --write '**/*.{js,md,css,scss,yaml,yml,json,jsonc}'",
+    "lint:format": "prettier --check '**/*.{js,md,css,scss,yaml,yml,json,jsonc}'",
     "lint:js": "eslint ./ --max-warnings 0",
     "lint:readme": "node write-rules.mjs --check",
     "lint": "npm run lint:format && npm run lint:js && npm run lint:readme",

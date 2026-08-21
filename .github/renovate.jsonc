@@ -1,0 +1,49 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+
+  "extends": [
+    "config:recommended",
+    ":enablePreCommit",
+    "helpers:pinGitHubActionDigests",
+  ],
+
+  // Run about bi-weekly.
+  "schedule": ["* * 3,22 * *"],
+  "timezone": "Etc/UTC",
+  "prConcurrentLimit": 10,
+
+  "labels": ["dependencies"],
+
+  "minimumReleaseAge": "7 days",
+
+  // Periodically refresh uv.lock to catch transitive dependency updates.
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true,
+    "schedule": ["* * 3,22 * *"],
+  },
+
+  "packageRules": [
+    // Auto-merge GitHub Actions updates.
+    {
+      "matchCategories": ["ci"],
+      "automerge": true,
+      "groupName": "CI configuration dependencies",
+    },
+
+    {
+      "packageNames": ["prettier"],
+      "groupName": "prettier",
+      "automerge": true,
+    },
+
+    {
+      "matchDepTypes": ["peerDependencies"],
+      "enabled": false,
+    },
+    {
+      "matchDepTypes": ["dependencies"],
+      "enabled": false,
+    },
+  ],
+}

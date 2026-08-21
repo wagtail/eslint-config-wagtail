@@ -1,9 +1,10 @@
 name: CI
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - renovate/**
   pull_request:
-    branches: [main]
 jobs:
   test:
     runs-on: ubuntu-26.04-arm
@@ -12,8 +13,7 @@ jobs:
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
         with:
           node-version-file: '.node-version'
-          cache: 'npm'
-      - run: npm ci --omit=optional --no-audit --progress=false
+      - run: npm ci
       - run: npm run lint
       - run: npm run test
       - run: npm pack --dry-run --loglevel notice
