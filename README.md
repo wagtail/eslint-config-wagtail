@@ -1,6 +1,6 @@
 # [@wagtail/eslint-config-wagtail](https://www.npmjs.com/package/@wagtail/eslint-config-wagtail) [<img src="https://raw.githubusercontent.com/wagtail/eslint-config-wagtail/main/.github/eslint-logo.svg?sanitize=true" alt="ESLint" width="90" height="90" align="right">](https://eslint.org)
 
-> Strict ESLint config for Wagtail.
+> Strict ESLint config for high-quality code in [Wagtail](https://wagtail.org/).
 
 The package provides Wagtail's strict ESLint configuration as an extensible shared config using the [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files) format.
 
@@ -47,25 +47,6 @@ With some Wagtail-specific customizations:
 
 - Use soft-tabs with a two space indent. Spaces are the only way to guarantee code renders the same in any person's environment.
 - We accept `snake_case` in object properties, such as `ajaxResponse.page_title`, however camelCase or UPPER_CASE should be used everywhere else.
-
-## Contribution Guidelines
-
-### Install
-
-- Required [Node](https://nodejs.org)
-- We recommend using [nvm](https://github.com/creationix/nvm)
-- Clone the project on to your computer
-- Run `nvm install` to ensure you have the correct Node version
-- Run `npm install` to install project dependencies
-- Ensure your editor is set up to use [editorconfig](https://editorconfig.org/), [Prettier](https://prettier.io/) and [Eslint](https://eslint.org/)
-
-### Development
-
-- Run `nvm use` to set Node to the correct version
-- Run tests via `npm run test`
-- Run linting via `npm run lint`
-- Run preflight checks before commiting final code via `npm run preflight`
-- Note: When working with the rule set, only modify the `index.js` file, not the `eslint.config.js` file as it is for the linting of this project only
 
 ## Rules
 
