@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.0.0](https://github.com/wagtail/eslint-config-wagtail/releases/tag/v1.0.0) - 2026-08-21
+
+### Changed
+
+- Promoted to 1.0.0 to mark the ESLint 9 / flat config as stable. There are no rule or peer dependency changes compared to v0.6.0.
+
 ## [v0.6.0](https://github.com/wagtail/eslint-config-wagtail/releases/tag/v0.6.0) - 2026-06-05
 
 ### Changed
