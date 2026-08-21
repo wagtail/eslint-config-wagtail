@@ -7,7 +7,6 @@
 The package provides Wagtail's ESLint configuration as an extensible shared config using the [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files) format.
 
 - [Usage](#usage)
-- [Links](#links)
 - [Code style](#code-style)
 - [Contribution Guidelines](#contribution-guidelines)
   - [Install](#install)
@@ -38,10 +37,12 @@ export default [
 This ESLint config includes `recommended` rules from:
 
 - [ESLint rules](https://eslint.org/docs/latest/rules/)
-- [eslint-plugin-import](https://github.com/import-js/eslint-plugin-import)
+- [typescript-eslint](https://typescript-eslint.io/)
+- [eslint-plugin-import-x](https://github.com/un-ts/eslint-plugin-import-x)
 - [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react)
 - [eslint-plugin-react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
 - [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
+- [@stylistic/eslint-plugin](https://eslint.style/)
 - [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)
 
 With some Wagtail-specific customizations:
