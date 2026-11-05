@@ -1,28 +1,60 @@
 import assert from 'node:assert/strict';
-import fs from 'node:fs';
+import { execFile } from 'node:child_process';
 import { describe, it } from 'node:test';
-import { ESLint } from 'eslint';
-import config from '../eslint.config.js';
+import { promisify } from 'node:util';
 
-const validExample = fs.readFileSync('./examples/valid.js', 'utf-8');
-const invalidExample = fs.readFileSync('./examples/invalid.js', 'utf-8');
+const CONFIG = '__tests__/fixtures/oxlint-test-config.ts';
+
+/**
+ * Runs oxlint on the given file with the test config, and returns the
+ * diagnostics from its JSON output.
+ */
+const lint = async (file) => {
+  let stdout;
+  try {
+    ({ stdout } = await promisify(execFile)('npx', [
+      'oxlint',
+      '-c',
+      CONFIG,
+      '-f',
+      'json',
+      file,
+    ]));
+  } catch (error) {
+    // oxlint exits with a non-zero code when it reports errors.
+    if (!error.stdout) throw error;
+    ({ stdout } = error);
+  }
+  return JSON.parse(stdout).diagnostics;
+};
 
 describe('linting', () => {
-  const eslint = new ESLint({
-    overrideConfigFile: true,
-    overrideConfig: config,
-  });
-
   it('flags no warnings when valid', async () => {
-    const lintResult = await eslint.lintText(validExample);
-    assert.strictEqual(lintResult[0].errorCount, 0);
-    assert.strictEqual(lintResult[0].warningCount, 0);
+    assert.deepStrictEqual(await lint('examples/valid.js'), []);
   });
 
   it('flags warnings when invalid', async () => {
-    const [{ errorCount, warningCount }] =
-      await eslint.lintText(invalidExample);
+    const diagnostics = await lint('examples/invalid.js');
+    assert.strictEqual(diagnostics.length, 2);
+  });
 
-    assert.strictEqual(errorCount + warningCount, 2);
+  it('resolves TypeScript imports with the shared settings', async () => {
+    assert.deepStrictEqual(await lint('examples/ts-imports/index.ts'), []);
+  });
+
+  it('runs rules from JS plugins', async () => {
+    const codes = new Set(
+      (await lint('examples/invalid-plugins.jsx')).map(({ code }) => code),
+    );
+
+    for (const code of [
+      '@stylistic(spaced-comment)',
+      'import-x-js(no-extraneous-dependencies)',
+      'import-x-js(no-unresolved)',
+      'react-js(no-typos)',
+      'wagtail(camelcase)',
+    ]) {
+      assert.ok(codes.has(code), `Expected ${code} to be reported`);
+    }
   });
 });

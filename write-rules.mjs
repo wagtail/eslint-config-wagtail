@@ -1,32 +1,40 @@
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
-import { ESLint } from 'eslint';
+import wagtailConfig from './index.js';
 
 const COMMENT = '<!-- RULES:START -->';
 const README = 'README.md';
 
+/**
+ * Documentation URLs of oxlint's native rules, keyed by the rule name as it is
+ * written in the config, e.g. `no-console` or `jsx-a11y/alt-text`.
+ */
+const nativeRuleUrls = new Map(
+  JSON.parse(
+    execFileSync('npx', ['oxlint', '--rules', '--format=json'], {
+      encoding: 'utf8',
+    }),
+  ).map(({ scope, value, docs_url: url }) => [
+    scope === 'eslint' ? value : `${scope.replace('_', '-')}/${value}`,
+    url,
+  ]),
+);
+
 const getUrl = (rule) => {
-  const parts = rule.split('/');
+  if (nativeRuleUrls.has(rule)) return nativeRuleUrls.get(rule);
 
-  if (parts.length === 1) {
-    return `https://eslint.org/docs/latest/rules/${rule}`;
-  }
+  const [group, ruleName] = rule.split('/');
 
-  const [group, ruleName] = parts;
-
-  const nonCoreRules = {
+  const jsPluginRules = {
     '@stylistic': () => `https://eslint.style/rules/${ruleName}`,
-    '@typescript-eslint': () =>
-      `https://typescript-eslint.io/rules/${ruleName}/`,
-    'import-x': () =>
+    'import-x-js': () =>
       `https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/${ruleName}.md`,
-    'jsx-a11y': () =>
-      `https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/${ruleName}.md`,
-    'react': () =>
+    'react-js': () =>
       `https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/${ruleName}.md`,
-    'react-hooks': () => `https://react.dev/reference/eslint-plugin-react-hooks/lints/${ruleName}`,
+    'wagtail': () => `https://eslint.org/docs/latest/rules/${ruleName}`,
   };
 
-  return (nonCoreRules[group] || (() => null))();
+  return (jsPluginRules[group] || (() => null))();
 };
 
 /**
@@ -38,18 +46,10 @@ const getUrl = (rule) => {
  * @returns {string}
  */
 const getPrettyConfig = (
-  [severityLevel, ...config],
+  ruleConfig,
   { defaultValue = '', maxLength = 75 } = {},
 ) => {
-  const severityLabels = {
-    0: 'off',
-    1: 'warn',
-    2: 'error',
-  };
-
-  const severity = severityLabels[severityLevel];
-
-  if (!Array.isArray(config)) return [severity, defaultValue];
+  const [severity, ...config] = [ruleConfig].flat();
 
   const configItems = config.filter((item) => typeof item !== 'boolean');
 
@@ -80,7 +80,7 @@ const getPrettyConfig = (
  */
 const createMarkdownTable = (rules) => {
   const enabledRules = Object.entries(rules)
-    .filter(([, [value]]) => value && value !== 'off')
+    .filter(([, value]) => [value].flat()[0] !== 'off')
     .sort(([ruleA], [ruleB]) => ruleA.localeCompare(ruleB));
 
   const maxRuleLength =
@@ -136,26 +136,23 @@ const createMarkdownTable = (rules) => {
 ${tableHeader}
 ${tableRows.map(([row]) => row).join('\n')}
 
-[config]: https://github.com/wagtail/eslint-config-wagtail/blob/main/index.js
+[config]: https://github.com/wagtail/oxlint-config-wagtail/blob/main/index.js
 ${tableRows
-      .map(([, link]) => link)
-      .filter(Boolean)
-      .join('\n')}
+  .map(([, link]) => link)
+  .filter(Boolean)
+  .join('\n')}
 `;
 };
 
 /**
- * Reads the rules configuration from stylelint and writes an updated table
+ * Reads the rules configuration from index.js and writes an updated table
  * to the README.md file.
  *
  * If run with `--check`, no content will be written and instead an exit
  * code will fire to flag a CI error.
  */
-const writeRules = async () => {
-  const eslint = new ESLint();
-  const { rules } = await eslint.calculateConfigForFile('index.js');
-
-  const markdownTable = createMarkdownTable(rules);
+const writeRules = () => {
+  const markdownTable = createMarkdownTable(wagtailConfig.rules);
 
   fs.readFile(README, (fileReadError, buf) => {
     if (fileReadError) throw fileReadError;
