@@ -1,21 +1,22 @@
 {
-  "name": "@wagtail/eslint-config-wagtail",
-  "version": "1.0.0",
-  "description": "Shareable ESLint config for Wagtail",
+  "name": "@wagtail/oxlint-config",
+  "version": "0.1.0",
+  "description": "Shareable oxlint config for Wagtail",
   "type": "module",
   "main": "index.js",
   "files": [
-    "index.js"
+    "index.js",
+    "plugin/"
   ],
   "author": "wagtail",
   "license": "MIT",
-  "homepage": "https://github.com/wagtail/eslint-config-wagtail#readme",
+  "homepage": "https://github.com/wagtail/oxlint-config-wagtail#readme",
   "bugs": {
-    "url": "https://github.com/wagtail/eslint-config-wagtail/issues"
+    "url": "https://github.com/wagtail/oxlint-config-wagtail/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wagtail/eslint-config-wagtail.git"
+    "url": "git+https://github.com/wagtail/oxlint-config-wagtail.git"
   },
   "devEngines": {
     "packageManager": {
@@ -24,47 +25,41 @@
   },
   "keywords": [
     "config",
-    "eslint-config",
-    "eslint",
+    "oxlint-config",
+    "oxlint",
+    "oxc",
     "lint",
     "styleguide",
     "wagtail"
   ],
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
-    "@stylistic/eslint-plugin": "^5.8.0",
+    "@stylistic/eslint-plugin": "^5.10.0",
     "eslint": "^9.39.2",
-    "eslint-config-prettier": "^10.1.0",
     "eslint-import-resolver-typescript": "^4.4.4",
-    "eslint-plugin-import-x": "^4.16.1",
-    "eslint-plugin-jsx-a11y": "^6.10.0",
-    "eslint-plugin-react": "^7.37.0",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "globals": "^17.3.0",
+    "eslint-plugin-import-x": "^4.17.1",
+    "eslint-plugin-react": "^7.37.5",
+    "oxlint": "^1.91.0",
+    "oxlint-tsgolint": "^7.0.2005",
     "prettier": "^3.6.2",
-    "typescript": "^5.9.0",
-    "typescript-eslint": "^8.54.0"
+    "typescript": "^5.9.0"
   },
   "peerDependencies": {
-    "@eslint/js": "^9",
-    "@stylistic/eslint-plugin": "^5.8.0",
-    "eslint": "^9",
-    "eslint-config-prettier": "^10.1.0",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "eslint": "^9.39.0",
     "eslint-import-resolver-typescript": "^4.4.0",
-    "eslint-plugin-import-x": "^4.16.1",
-    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "eslint-plugin-import-x": "^4.17.0",
     "eslint-plugin-react": "^7.37.0",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "typescript-eslint": "^8.54.0"
+    "oxlint": "^1.91.0",
+    "oxlint-tsgolint": "^7.0.0"
   },
   "scripts": {
-    "format": "prettier --write '**/*.{js,md,css,scss,yaml,yml,json,jsonc}'",
-    "lint:format": "prettier --check '**/*.{js,md,css,scss,yaml,yml,json,jsonc}'",
-    "lint:js": "eslint ./ --max-warnings 0",
+    "format": "prettier --write '**/*.{js,mjs,ts,md,css,scss,yaml,yml,json,jsonc}'",
+    "lint:format": "prettier --check '**/*.{js,mjs,ts,md,css,scss,yaml,yml,json,jsonc}'",
+    "lint:js": "oxlint --max-warnings 0",
     "lint:readme": "node write-rules.mjs --check",
     "lint": "npm run lint:format && npm run lint:js && npm run lint:readme",
     "preflight": "npm run format && npm run lint && npm run test",
-    "print-config": "eslint --print-config eslint.config.js",
+    "print-config": "oxlint --print-config",
     "test": "node --test",
     "write-rules": "node write-rules.mjs"
   },

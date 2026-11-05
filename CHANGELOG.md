@@ -7,6 +7,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Renamed the package to `@wagtail/oxlint-config` and migrated it from ESLint to [oxlint](https://oxc.rs/docs/guide/usage/linter.html). The first release under the new name will be v0.1.0.
+- Rules from ESLint core, `typescript-eslint`, `eslint-plugin-import-x`, `eslint-plugin-react`, `eslint-plugin-react-hooks` and `eslint-plugin-jsx-a11y` now run as oxlint's native ports where available.
+- Rules oxlint does not implement natively run through oxlint JS plugins: `@stylistic/eslint-plugin`, `eslint-plugin-import-x` (aliased `import-x-js`) and `eslint-plugin-react` (aliased `react-js`).
+- `camelcase` is vendored from ESLint as `wagtail/camelcase` in a bundled JS plugin.
+- Enabled oxlint nursery rules (`no-undef`, `no-unreachable-loop`, `no-restricted-exports`, `import/named`, `import/export`, `react/require-render-return`) and type-aware rules (`typescript/consistent-return`, `typescript/dot-notation`), to keep the rules from the ESLint config.
+- Replaced `no-undef-init` with `unicorn/no-useless-undefined`.
+
+### Removed
+
+- The `no-restricted-syntax` ban on `for..in`, labels and `with`. `guard-for-in`, `no-labels` and `no-with` are still enabled.
+- `strict`, `no-dupe-args`, `no-octal`, `no-octal-escape`, `react/jsx-uses-react`, `react/jsx-uses-vars`, `react-hooks/config`, `react-hooks/gating` and `react-hooks/component-hook-factories`, which oxlint does not support. See the README for details.
+- The `ignoreCase` option of `react/jsx-no-duplicate-props`.
+
+### BREAKING CHANGES
+
+This release replaces ESLint with oxlint. Consumers need an `oxlint.config.ts` file extending the config, with `options.typeAware` and `settings.react.version` set. Existing `eslint-disable` comments for renamed rules can be updated with `npx @oxlint/migrate --replace-eslint-comments`.
+
+| package                   | from    | to      |
+| ------------------------- | ------- | ------- |
+| oxlint                    |         | ^1.91.0 |
+| oxlint-tsgolint           |         | ^7.0.0  |
+| eslint                    | ^9      | ^9.39.0 |
+| @eslint/js                | ^9      | removed |
+| typescript-eslint         | ^8.54.0 | removed |
+| eslint-config-prettier    | ^10.1.0 | removed |
+| eslint-plugin-jsx-a11y    | ^6.10.0 | removed |
+| eslint-plugin-react-hooks | ^7.0.1  | removed |
+| @stylistic/eslint-plugin  | ^5.8.0  | ^5.10.0 |
+| eslint-plugin-import-x    | ^4.16.1 | ^4.17.0 |
+
 ## [v1.0.0](https://github.com/wagtail/eslint-config-wagtail/releases/tag/v1.0.0) - 2026-08-21
 
 ### Changed
@@ -35,7 +67,6 @@ This release changes the config to ESLint’s flat config format, and updates mo
 | eslint-plugin-import              | ^2.29.0 | removed |
 | eslint-plugin-import-x            |         | ^4.16.1 |
 | eslint-plugin-jsx-a11y            | ^6.8.0  | ^6.10.0 |
-| eslint-plugin-react               | ^7.33.2 | ^7.37.0 |
 | eslint-plugin-react-hooks         | ^4.6.0  | ^7.0.1  |
 | eslint-import-resolver-typescript |         | ^4.4.0  |
 | typescript-eslint                 |         | ^8.54.0 |
@@ -96,7 +127,6 @@ This release updates most of the dependencies of the config:
 | eslint                    | ^7.2.0  | ^8.2.0  |
 | eslint-config-airbnb      | ^18.2.1 | ^19.0.2 |
 | eslint-config-prettier    |         | ^8.3.0  |
-| eslint-plugin-react       | ^7.24.0 | ^7.27.1 |
 | eslint-plugin-react-hooks | ^4.2.0  | ^4.3.0  |
 | eslint-plugin-jsx-a11y    | ^6.4.1  | ^6.5.1  |
 | eslint-plugin-import      | ^2.23.4 | ^2.25.3 |
